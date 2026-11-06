@@ -24,3 +24,4 @@ htmlFiles.forEach(f => {
     console.log('   Missing keys:', missingKeys.slice(0, 5));
   }
 });
+
