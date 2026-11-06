@@ -1,0 +1,273 @@
+/* ==========================================================================
+   AGRIMIND AI — RESPONSIVE STYLES & PRINT STYLES
+   Breakpoints: 1280px, 1024px, 768px, 480px, 360px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   DESKTOP & LARGE SCREENS (<= 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mandi-filter-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET LANDSCAPE & SMALL DESKTOP (<= 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --nav-height: 72px;
+  }
+
+  .nav-links,
+  .nav-actions .btn-primary {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-badge,
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-trust-bar {
+    justify-content: center;
+  }
+
+  .hero-visual-card {
+    max-width: 580px;
+    margin: 2rem auto 0 auto;
+  }
+
+  .soil-dashboard-grid,
+  .calculator-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .article-body-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .article-sidebar {
+    position: static;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET PORTRAIT & LARGE MOBILE (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-float-1 {
+    right: 0.5rem;
+    top: -1rem;
+  }
+
+  .hero-float-2 {
+    left: 0.5rem;
+    bottom: -1rem;
+  }
+
+  .mandi-filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .weather-main-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+  }
+
+  .report-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE SCREENS (<= 480px / 430px / 390px / 375px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-trust-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-float-card {
+    position: static;
+    margin-top: 1rem;
+    animation: none;
+    width: 100%;
+  }
+
+  .forecast-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-legend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-dialog {
+    margin: 1rem;
+    max-height: 85vh;
+  }
+
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .toast {
+    max-width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SMALL MOBILE SCREENS (<= 360px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .brand-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-float-card,
+  .scan-laser-line {
+    animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   PRINT STYLES FOR CROP REPORTS & PROFIT CALCULATIONS
+   -------------------------------------------------------------------------- */
+@media print {
+  .navbar,
+  .mobile-drawer,
+  .mobile-toggle,
+  .back-to-top,
+  .toast-container,
+  .site-footer,
+  .btn,
+  .demo-disclaimer {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .card, .doctor-report, .calculator-grid {
+    box-shadow: none !important;
+    border: 1px solid #CCCCCC !important;
+    page-break-inside: avoid;
+  }
+
+  .section {
+    padding: 1rem 0 !important;
+  }
+
+  a[href]::after {
+    content: "" !important;
+  }
+}

@@ -1,0 +1,1003 @@
+/* ==========================================================================
+   AGRIMIND AI — PAGES STYLING
+   Hero, Tools, Visualizers, Calculators, Knowledge Hub, Articles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HOMEPAGE HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 5rem;
+  background-color: var(--color-deep-forest);
+  background-image: 
+    linear-gradient(to bottom, rgba(16, 37, 29, 0.75) 0%, rgba(16, 37, 29, 0.92) 80%, var(--color-deep-forest) 100%),
+    url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  color: var(--color-pure-white);
+  overflow: hidden;
+}
+
+/* Floating Light Particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 20% 30%, rgba(212, 245, 138, 0.08) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(128, 184, 90, 0.08) 0%, transparent 40%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(212, 245, 138, 0.12);
+  border: 1px solid rgba(212, 245, 138, 0.25);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-lime);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  color: var(--color-pure-white);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-title span.lime-text {
+  color: var(--color-lime);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  color: var(--color-muted-light);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.hero-trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: var(--color-muted-light);
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-trust-item svg {
+  color: var(--color-lime);
+  flex-shrink: 0;
+}
+
+/* Layered Hero Visual */
+.hero-visual-card {
+  position: relative;
+}
+
+.hero-main-img-wrapper {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  aspect-ratio: 4/3;
+  background: var(--bg-dark-card);
+}
+
+.hero-main-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-main-img-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+/* Floating Widgets on Hero */
+.hero-float-card {
+  position: absolute;
+  background: rgba(16, 37, 29, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 245, 138, 0.25);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  color: var(--color-pure-white);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+  animation: floatSlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.hero-float-1 {
+  top: -1.5rem;
+  right: -1rem;
+  min-width: 190px;
+}
+
+.hero-float-2 {
+  bottom: -1.5rem;
+  left: -1.25rem;
+  min-width: 210px;
+  animation-delay: 1.5s;
+}
+
+.float-stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-muted-light);
+  margin-bottom: 0.35rem;
+}
+
+.float-stat-val {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-lime);
+}
+
+.demo-tag-tiny {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-muted-light);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   2. TOOLS SHOWCASE GRID (HOMEPAGE)
+   -------------------------------------------------------------------------- */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.75rem;
+}
+
+.tool-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-fresh-leaf);
+  box-shadow: var(--shadow-lg);
+}
+
+.tool-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-leaf-light);
+  color: var(--color-dark-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.tool-card:hover .tool-card-icon {
+  background: var(--color-lime);
+  color: var(--color-deep-forest);
+  transform: scale(1.05);
+}
+
+.tool-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.tool-card p {
+  color: var(--color-muted-text);
+  font-size: 0.925rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tool-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid #EEF3EB;
+}
+
+/* --------------------------------------------------------------------------
+   3. AI CROP DOCTOR PAGE
+   -------------------------------------------------------------------------- */
+.dropzone-container {
+  border: 2px dashed #B8CBB5;
+  background: #FAFBF8;
+  border-radius: var(--radius-xl);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.dropzone-container.dragover {
+  border-color: var(--color-fresh-leaf);
+  background: var(--color-leaf-light);
+  transform: scale(1.01);
+}
+
+.dropzone-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.25rem auto;
+  background: var(--color-leaf-light);
+  color: var(--color-dark-green);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-dark);
+}
+
+.dropzone-hint {
+  font-size: 0.875rem;
+  color: var(--color-muted-text);
+  margin-bottom: 1.25rem;
+}
+
+/* Image Preview with Scanning Animation */
+.scan-preview-box {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 480px;
+  margin: 0 auto 1.5rem auto;
+  border: 1px solid var(--color-border-subtle);
+  background: #000;
+  aspect-ratio: 4/3;
+}
+
+.scan-preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scan-laser-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-lime) 50%, transparent 100%);
+  box-shadow: 0 0 14px var(--color-lime), 0 0 28px var(--color-lime);
+  display: none;
+  z-index: 10;
+}
+
+.scan-preview-box.scanning .scan-laser-line {
+  display: block;
+  animation: laserScan 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes laserScan {
+  0% { top: 0%; }
+  100% { top: 97%; }
+}
+
+.scan-progress-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(16, 37, 29, 0.9);
+  padding: 0.75rem 1rem;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-pure-white);
+  font-size: 0.85rem;
+  z-index: 12;
+}
+
+.scan-preview-box.scanning .scan-progress-overlay {
+  display: flex;
+}
+
+/* Diagnostic Report Layout */
+.doctor-report {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-md);
+  margin-top: 2rem;
+  display: none;
+}
+
+.doctor-report.active {
+  display: block;
+  animation: reportFade 0.5s ease forwards;
+}
+
+@keyframes reportFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.report-title-group h3 {
+  font-size: 1.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.35rem;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.report-section-card {
+  background: #F8FAF7;
+  border: 1px solid #E1E8DF;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.report-section-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.85rem;
+  color: var(--color-dark-green);
+}
+
+.report-list {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: var(--color-text-body);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. SOIL INTELLIGENCE PAGE
+   -------------------------------------------------------------------------- */
+.soil-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Soil pH Circular Gauge */
+.ph-gauge-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.gauge-svg-wrapper {
+  position: relative;
+  width: 240px;
+  height: 140px;
+  margin: 0 auto;
+}
+
+.gauge-needle {
+  transform-origin: 120px 120px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gauge-value-display {
+  margin-top: 0.5rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
+}
+
+/* NPK Progress Bars */
+.npk-bar-group {
+  margin-bottom: 1.25rem;
+}
+
+.npk-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background-color: #E6EFE3;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+}
+
+.progress-fill-n { background-color: #3B82F6; }
+.progress-fill-p { background-color: #F59E0B; }
+.progress-fill-k { background-color: #10B981; }
+
+.npk-thresholds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--color-muted-text);
+  margin-top: 0.25rem;
+}
+
+/* Soil Crop Compatibility Matrix */
+.crop-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.crop-matrix-item {
+  padding: 0.75rem 0.65rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--bg-surface);
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.crop-matrix-item.compatible {
+  border-color: #A7F3D0;
+  background: #ECFDF5;
+  color: #065F46;
+}
+
+.crop-matrix-item.moderate {
+  border-color: #FDE68A;
+  background: #FFFBEB;
+  color: #92400E;
+}
+
+.crop-matrix-item.incompatible {
+  border-color: #FECACA;
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+/* --------------------------------------------------------------------------
+   5. WEATHER & IRRIGATION PAGE
+   -------------------------------------------------------------------------- */
+.weather-hero-card {
+  background: linear-gradient(135deg, var(--color-deep-forest) 0%, var(--color-dark-green) 100%);
+  color: var(--color-pure-white);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weather-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.weather-main-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.weather-temp-large {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  font-family: var(--font-heading);
+  line-height: 1;
+  color: var(--color-pure-white);
+}
+
+.weather-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.weather-meta-item {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+}
+
+.weather-meta-label {
+  font-size: 0.75rem;
+  color: var(--color-muted-light);
+  margin-bottom: 0.25rem;
+}
+
+.weather-meta-val {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-pure-white);
+}
+
+/* 5-Day Forecast Grid */
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.forecast-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.forecast-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-fresh-leaf);
+}
+
+.forecast-card.today {
+  border-color: var(--color-fresh-leaf);
+  background: #F6FAF3;
+}
+
+/* --------------------------------------------------------------------------
+   6. MANDI MARKET PAGE
+   -------------------------------------------------------------------------- */
+.mandi-filter-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mandi-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.mandi-stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.mandi-stat-card .val {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text-dark);
+  margin-top: 0.35rem;
+}
+
+.table-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background: #F3F6F1;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  border-bottom: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.data-table th:hover {
+  background: #EBF1E8;
+}
+
+.data-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #EEF3EB;
+  color: var(--color-text-body);
+}
+
+.data-table tr:hover td {
+  background-color: #FAFBF9;
+}
+
+.price-pill {
+  font-weight: 700;
+  color: var(--color-text-dark);
+  font-size: 1.05rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. FARM PROFIT CALCULATOR PAGE
+   -------------------------------------------------------------------------- */
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.calc-summary-hero {
+  background: var(--color-deep-forest);
+  color: var(--color-pure-white);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  border: 1px solid rgba(212, 245, 138, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.calc-profit-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calc-profit-val {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.calc-profit-val.positive {
+  color: var(--color-lime);
+}
+
+.calc-profit-val.negative {
+  color: #F87171;
+}
+
+.calc-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.calc-kpi-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+}
+
+.calc-kpi-item .label {
+  font-size: 0.775rem;
+  color: var(--color-muted-light);
+  margin-bottom: 0.2rem;
+}
+
+.calc-kpi-item .number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-pure-white);
+}
+
+/* Cost Breakdown Stacked Bar / Visualizer */
+.cost-breakdown-bar {
+  display: flex;
+  height: 22px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 1.25rem 0;
+}
+
+.cost-segment {
+  height: 100%;
+  transition: width 0.4s ease;
+  position: relative;
+}
+
+.cost-segment:hover {
+  filter: brightness(1.15);
+}
+
+.cost-legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1rem;
+  font-size: 0.825rem;
+}
+
+.cost-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-body);
+}
+
+.cost-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. KNOWLEDGE HUB & ARTICLE PAGES
+   -------------------------------------------------------------------------- */
+.hub-categories {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  scrollbar-width: none;
+}
+
+.hub-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category-chip {
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.category-chip:hover,
+.category-chip.active {
+  background: var(--color-deep-forest);
+  color: var(--color-lime);
+  border-color: var(--color-deep-forest);
+}
+
+.article-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-fresh-leaf);
+}
+
+.article-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.article-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.article-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.775rem;
+  color: var(--color-muted-text);
+  margin-bottom: 0.65rem;
+}
+
+.article-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+  color: var(--color-text-dark);
+}
+
+.article-card-summary {
+  font-size: 0.9rem;
+  color: var(--color-muted-text);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+/* Single Article Detail Styles */
+.article-header {
+  padding: clamp(3rem, 5vw, 4.5rem) 0 2.5rem 0;
+  background: var(--color-deep-forest);
+  color: var(--color-pure-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.article-body-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3.5rem;
+  padding: 3.5rem 0;
+  align-items: start;
+}
+
+.article-sidebar {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+  background: var(--bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-muted-text);
+}
+
+.toc-list a:hover {
+  color: var(--color-dark-green);
+  font-weight: 600;
+}
+
+.article-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-body);
+}
+
+.article-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+}
+
+.article-content h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.article-content ul { list-style-type: disc; }
+.article-content ol { list-style-type: decimal; }
+
+.article-callout {
+  background: #F4F8F1;
+  border-left: 4px solid var(--color-fresh-leaf);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 1.75rem 0;
+  font-size: 0.975rem;
+}

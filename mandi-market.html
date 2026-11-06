@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandi Market & Price Insights — AgriMind AI | Commodity Prices & Trends</title>
+  <meta name="description" content="Explore sample Indian APMC mandi prices, commodity arrival trends, and calculate potential selling revenues for major crops on AgriMind AI.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link active" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link active" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">AGRICULTURAL COMMODITIES</span>
+        <h1 class="section-title" data-i18n="mandi_title">Mandi Market & Price Insights</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="mandi_subtitle">
+          Track sample modal prices, market arrivals and calculate potential farm-gate revenue for major agricultural commodities.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Illustrative Sample Prices:</strong>
+            All listed mandi rates are sample demonstration values and do not represent live transactions. Real mandi prices fluctuate by date, grade, moisture content, bag weight, location and physical APMC/e-NAM auctions.
+          </div>
+        </div>
+
+        <!-- Top Statistics Cards -->
+        <div class="mandi-stats-row">
+          <div class="mandi-stat-card">
+            <span class="badge badge-leaf">Average Modal</span>
+            <div id="mandiStatAvg" class="val">₹4,850</div>
+            <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 0.25rem;">Across filtered commodities</div>
+          </div>
+
+          <div class="mandi-stat-card">
+            <span class="badge badge-lime">Highest Listing</span>
+            <div id="mandiStatHigh" class="val">₹19,800</div>
+            <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 0.25rem;">Red Chilli (Guntur Yard)</div>
+          </div>
+
+          <div class="mandi-stat-card">
+            <span class="badge badge-info">Lowest Listing</span>
+            <div id="mandiStatLow" class="val">₹1,650</div>
+            <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 0.25rem;">Tomato (Nashik APMC)</div>
+          </div>
+
+          <div class="mandi-stat-card">
+            <span class="badge badge-warning">Weekly Velocity</span>
+            <div id="mandiStatTrend" class="val">+1.8% Avg</div>
+            <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-top: 0.25rem;">Market weighted change</div>
+          </div>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="mandi-filter-bar">
+          <!-- Search -->
+          <div>
+            <label for="mandiSearchInput" class="sr-only">Search</label>
+            <input type="text" id="mandiSearchInput" class="form-control" placeholder="Search crop, mandi or state..." data-i18n-placeholder="mandi_search_placeholder">
+          </div>
+
+          <!-- Crop Filter -->
+          <div>
+            <label for="mandiCropFilter" class="sr-only">Crop</label>
+            <select id="mandiCropFilter" class="form-control">
+              <option value="all">All Crops</option>
+              <option value="paddy">Paddy / Rice</option>
+              <option value="wheat">Wheat</option>
+              <option value="cotton">Cotton</option>
+              <option value="soybean">Soybean</option>
+              <option value="mustard">Mustard</option>
+              <option value="tomato">Tomato</option>
+              <option value="onion">Onion</option>
+              <option value="chilli">Red Chilli</option>
+              <option value="turmeric">Turmeric</option>
+              <option value="gram">Gram / Chana</option>
+            </select>
+          </div>
+
+          <!-- State Filter -->
+          <div>
+            <label for="mandiStateFilter" class="sr-only">State</label>
+            <select id="mandiStateFilter" class="form-control">
+              <option value="all">All States</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+            </select>
+          </div>
+
+          <!-- Sort -->
+          <div>
+            <label for="mandiSortSelect" class="sr-only">Sort</label>
+            <select id="mandiSortSelect" class="form-control">
+              <option value="price-desc">Price: Highest to Lowest</option>
+              <option value="price-asc">Price: Lowest to Highest</option>
+              <option value="crop">Crop Name (A-Z)</option>
+              <option value="market">Market Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Mandi Price Table -->
+        <div class="table-wrapper" style="margin-bottom: 3rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Crop Commodity</th>
+                <th>APMC Mandi & State</th>
+                <th>Modal Price</th>
+                <th>Min – Max Range</th>
+                <th>Daily Arrivals</th>
+                <th>Trend</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="mandiTableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- =====================================================================
+             POTENTIAL REVENUE CALCULATOR WIDGET
+             ===================================================================== -->
+        <div id="revenueEstimatorCard" class="card">
+          <h2 style="font-size: 1.35rem; color: var(--color-dark-green); margin-bottom: 0.35rem;" data-i18n="mandi_calc_title">
+            Potential Revenue Estimator
+          </h2>
+          <p style="font-size: 0.875rem; color: var(--color-muted-text); margin-bottom: 1.5rem;">
+            Select a target mandi price and enter your expected harvest volume to estimate net revenue realization after transport.
+          </p>
+
+          <div class="grid grid-3" style="gap: 1.25rem; margin-bottom: 1.5rem;">
+            <!-- Quantity in Quintals -->
+            <div class="form-group">
+              <label for="calcQty" class="form-label" data-i18n="mandi_quantity_label">Quantity (Quintals)</label>
+              <input type="number" id="calcQty" class="form-control" value="50" min="1" step="1">
+              <div class="form-hint">1 Quintal = 100 kg (Approx 2 standard 50kg bags)</div>
+            </div>
+
+            <!-- Selling Price per Quintal -->
+            <div class="form-group">
+              <label for="calcPrice" class="form-label">Selling Price (₹ / Quintal)</label>
+              <input type="number" id="calcPrice" class="form-control" value="2550" min="100" step="10">
+              <div class="form-hint">Prefilled or click 'Calculate' in table row</div>
+            </div>
+
+            <!-- Transport & Loading per Quintal -->
+            <div class="form-group">
+              <label for="calcTransport" class="form-label">Transport & Mandi Fee (₹ / Qtl)</label>
+              <input type="number" id="calcTransport" class="form-control" value="80" min="0" step="5">
+              <div class="form-hint">Estimated haulage, loading & mandi cess</div>
+            </div>
+          </div>
+
+          <!-- Revenue Result Card -->
+          <div style="background: var(--color-deep-forest); color: var(--color-pure-white); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div style="font-size: 0.85rem; color: var(--color-muted-light);">Gross Produce Value</div>
+              <div id="calcGrossRev" style="font-size: 1.5rem; font-weight: 700; color: var(--color-pure-white);">₹1,27,500</div>
+            </div>
+
+            <div style="text-align: right;">
+              <div style="font-size: 0.85rem; color: var(--color-lime);" data-i18n="mandi_est_revenue">Estimated Net Realization</div>
+              <div id="calcNetRev" style="font-size: 2rem; font-weight: 800; font-family: var(--font-heading); color: var(--color-lime);">
+                ₹1,23,500
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mandi-market.js"></script>
+</body>
+</html>

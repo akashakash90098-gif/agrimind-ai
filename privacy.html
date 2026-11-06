@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AgriMind AI Platform</title>
+  <meta name="description" content="Transparent privacy disclosure explaining AgriMind AI's client-side prototype execution, localStorage usage, and zero data tracking policy.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item"><span class="dropdown-item-icon">🩺</span><div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div></a>
+            <a href="crop-planner.html" class="dropdown-item"><span class="dropdown-item-icon">🌾</span><div><strong data-i18n="nav_planner">Crop Planner</strong></div></a>
+            <a href="soil-intelligence.html" class="dropdown-item"><span class="dropdown-item-icon">🧪</span><div><strong data-i18n="nav_soil">Soil Intelligence</strong></div></a>
+            <a href="weather-irrigation.html" class="dropdown-item"><span class="dropdown-item-icon">🌦</span><div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div></a>
+            <a href="profit-calculator.html" class="dropdown-item"><span class="dropdown-item-icon">🧮</span><div><strong data-i18n="nav_profit">Profit Calculator</strong></div></a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow">DATA INTEGRITY & PRIVACY</span>
+        <h1 class="section-title" data-i18n="footer_privacy">Privacy Policy</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
+          Transparent disclosure of data handling, browser storage, and client-side processing in AgriMind AI.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <div class="card" style="line-height: 1.8; color: var(--color-text-body);">
+
+          <div style="font-size: 0.85rem; color: var(--color-muted-text); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
+            Effective Date: November 2026 • Platform Version: 1.0 (Static Frontend Prototype)
+          </div>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            1. Client-Side Processing Architecture
+          </h2>
+          <p style="margin-bottom: 1.25rem;">
+            AgriMind AI is engineered as a privacy-first static web application. All interactive features — including the AI Crop Doctor image scanning visualizer, Soil Intelligence pH gauge, Crop Planner suggestions, Mandi price sorting, and Farm Profit Calculator — execute entirely inside your local web browser using client-side JavaScript.
+          </p>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            2. Handling of Uploaded Crop Photographs
+          </h2>
+          <p style="margin-bottom: 1.25rem;">
+            When you select or drag-and-drop a crop leaf photograph in the AI Crop Doctor tool:
+          </p>
+          <ul style="padding-left: 1.5rem; list-style-type: disc; margin-bottom: 1.25rem;">
+            <li>The image is loaded into your browser's local memory via the standard HTML5 <code>FileReader</code> API.</li>
+            <li>No image files are transmitted across the internet to any external server or third-party database.</li>
+            <li>No biometric or facial data is captured or retained.</li>
+            <li>When you refresh or close the browser tab, the previewed image is immediately purged from RAM.</li>
+          </ul>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            3. Use of Browser LocalStorage
+          </h2>
+          <p style="margin-bottom: 1.25rem;">
+            AgriMind AI uses your browser's local storage solely for preserving non-sensitive interface preferences across pages:
+          </p>
+          <ul style="padding-left: 1.5rem; list-style-type: disc; margin-bottom: 1.25rem;">
+            <li><strong><code>agrimind_lang</code>:</strong> Stores your chosen language code (e.g. <code>en</code>, <code>te</code>, <code>ta</code>, or <code>hi</code>) so you do not have to reselect your preferred language upon clicking another tool.</li>
+            <li>We do not store passwords, tokens, API keys, location coordinates, or personal identifying data in localStorage.</li>
+          </ul>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            4. Absence of User Accounts & Passwords
+          </h2>
+          <p style="margin-bottom: 1.25rem;">
+            The current platform version does not include user registration, profiles, or authentication gates. All tools are open for exploration without creating an account or providing financial credentials.
+          </p>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            5. Third-Party Analytics & Cookies
+          </h2>
+          <p style="margin-bottom: 1.25rem;">
+            This prototype does not deploy third-party advertising tracking cookies, behavioral remarketing pixels, or data-broker trackers. Fonts are delivered via Google Fonts with standard browser caching.
+          </p>
+
+          <h2 style="font-size: 1.3rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+            6. Future Live Integrations
+          </h2>
+          <p>
+            If future versions integrate live e-NAM market feeds, server-hosted deep learning models, or satellite NDVI imagery, this policy will be formally updated to disclose any authenticated endpoints, server-side data logging, and encryption protocols.
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

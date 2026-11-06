@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather & Irrigation — AgriMind AI | Agro-Meteorology & Water Scheduling</title>
+  <meta name="description" content="5-day agricultural weather forecast and precision irrigation scheduler for Indian farmers to conserve groundwater and optimize crop growth.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink active">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">PRECISION WATER MANAGEMENT</span>
+        <h1 class="section-title" data-i18n="weather_title">Weather & Irrigation Planner</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="weather_subtitle">
+          Access demo 5-day agro-meteorological forecasts and calculate custom irrigation intervals to preserve water.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Demo Forecast Notice:</strong>
+            Meteorological readings are simulated demo datasets illustrating agro-weather features. Irrigation suggestions are rule-based guidelines, not rigid agronomic prescriptions.
+          </div>
+        </div>
+
+        <!-- Location Selector Bar -->
+        <div class="card" style="margin-bottom: 2rem; padding: 1.25rem 1.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <label for="weatherRegionSelect" class="form-label" style="margin-bottom: 0.25rem;" data-i18n="weather_location_select">
+                Select Agricultural Region
+              </label>
+              <div style="font-size: 0.8rem; color: var(--color-muted-text);">Choose an agro-climatic region in India</div>
+            </div>
+            <select id="weatherRegionSelect" class="form-control" style="max-width: 320px;">
+              <option value="ludhiana" selected>Ludhiana — Punjab (North Plains)</option>
+              <option value="guntur">Guntur — Andhra Pradesh (Coastal Plains)</option>
+              <option value="nashik">Nashik — Maharashtra (Western Ghats)</option>
+              <option value="coimbatore">Coimbatore — Tamil Nadu (Kongu Zone)</option>
+              <option value="varanasi">Varanasi — Uttar Pradesh (Eastern Plains)</option>
+              <option value="indore">Indore — Madhya Pradesh (Malwa Plateau)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Current Weather Hero Card -->
+        <div class="weather-hero-card">
+          <div class="weather-header-row">
+            <div>
+              <span id="weatherStateBadge" class="badge badge-lime" style="margin-bottom: 0.5rem;">Punjab (North Zone)</span>
+              <h2 id="weatherCityName" style="font-size: 1.85rem; color: var(--color-pure-white);">Ludhiana, Punjab</h2>
+            </div>
+            <span class="badge badge-dark">Simulated Agro-Meteorology</span>
+          </div>
+
+          <div class="weather-main-stats">
+            <div id="weatherCondIcon" style="display: flex; align-items: center; justify-content: center;">
+              <!-- Svg dynamically inserted -->
+            </div>
+            <div>
+              <div id="weatherTempVal" class="weather-temp-large">26°C</div>
+              <div id="weatherCondText" style="font-size: 1.15rem; color: var(--color-lime); font-weight: 600;">Clear & Sunny</div>
+            </div>
+          </div>
+
+          <!-- Weather Meta Details Grid -->
+          <div class="weather-meta-grid">
+            <div class="weather-meta-item">
+              <div class="weather-meta-label">Relative Humidity</div>
+              <div id="weatherHumidityVal" class="weather-meta-val">52%</div>
+            </div>
+            <div class="weather-meta-item">
+              <div class="weather-meta-label">Wind Speed & Dir</div>
+              <div id="weatherWindVal" class="weather-meta-val">9 km/h NW</div>
+            </div>
+            <div class="weather-meta-item">
+              <div class="weather-meta-label">Rain Probability</div>
+              <div id="weatherRainProbVal" class="weather-meta-val">5%</div>
+            </div>
+            <div class="weather-meta-item">
+              <div class="weather-meta-label">Solar UV Index</div>
+              <div id="weatherUvVal" class="weather-meta-val">6 (Moderate)</div>
+            </div>
+            <div class="weather-meta-item">
+              <div class="weather-meta-label">Dew Point</div>
+              <div id="weatherDewVal" class="weather-meta-val">15°C</div>
+            </div>
+          </div>
+
+          <!-- Farming Guidance Callout -->
+          <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.08); border-radius: var(--radius-md); border-left: 3px solid var(--color-lime);">
+            <strong style="color: var(--color-lime); font-size: 0.85rem; display: block; margin-bottom: 0.25rem;">
+              Agro-Meteorological Advisory:
+            </strong>
+            <p id="weatherFarmingAdvice" style="font-size: 0.9rem; color: var(--color-pure-white); margin: 0; line-height: 1.5;">
+              Ideal weather window for wheat field monitoring and timely second irrigation. Low humidity minimizes yellow rust risk.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5-Day Forecast Grid -->
+        <h3 style="font-size: 1.35rem; color: var(--color-dark-green); margin-bottom: 1rem;">
+          5-Day Agricultural Weather Outlook
+        </h3>
+        <div id="forecastGrid" class="forecast-grid"></div>
+
+        <!-- Temperature Trend Bars -->
+        <div class="card" style="margin-bottom: 3rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--color-dark-green);">
+            Temperature Trend & Maximum Daily Heat Range
+          </h4>
+          <div id="tempBarsContainer" style="display: flex; gap: 1rem; align-items: flex-end; padding: 1rem 0;"></div>
+        </div>
+
+        <!-- =====================================================================
+             SMART IRRIGATION PLANNER FORM
+             ===================================================================== -->
+        <div class="card">
+          <h2 style="font-size: 1.4rem; color: var(--color-dark-green); margin-bottom: 0.35rem;" data-i18n="irrigation_calculator_title">
+            Smart Irrigation Planner
+          </h2>
+          <p style="font-size: 0.875rem; color: var(--color-muted-text); margin-bottom: 1.75rem;">
+            Input your crop growth stage, soil texture, and recent local rainfall to compute custom watering intervals.
+          </p>
+
+          <form id="irrigationForm">
+            <div class="grid grid-3" style="gap: 1.25rem;">
+              <!-- Crop -->
+              <div class="form-group">
+                <label for="irrCrop" class="form-label">Crop Type</label>
+                <select id="irrCrop" class="form-control" required>
+                  <option value="wheat" selected>Wheat (Triticum aestivum)</option>
+                  <option value="paddy">Paddy / Rice</option>
+                  <option value="cotton">Cotton</option>
+                  <option value="tomato">Tomato</option>
+                  <option value="maize">Maize / Corn</option>
+                  <option value="groundnut">Groundnut</option>
+                </select>
+              </div>
+
+              <!-- Growth Stage -->
+              <div class="form-group">
+                <label for="irrStage" class="form-label" data-i18n="irrigation_crop_stage">Crop Growth Stage</label>
+                <select id="irrStage" class="form-control" required>
+                  <option value="initial">Initial Seedling / Vegetative</option>
+                  <option value="flowering" selected>Crown Root / Flowering / Squaring (Critical)</option>
+                  <option value="fruiting">Grain Filling / Pod / Boll Formation</option>
+                  <option value="maturation">Ripening / Pre-Harvest Maturation</option>
+                </select>
+              </div>
+
+              <!-- Soil Texture -->
+              <div class="form-group">
+                <label for="irrSoil" class="form-label" data-i18n="planner_soil">Soil Texture</label>
+                <select id="irrSoil" class="form-control" required>
+                  <option value="loam" selected>Loam / Alluvial (Balanced Water Holding)</option>
+                  <option value="clay">Heavy Clay / Black Soil (High Water Retention)</option>
+                  <option value="sandy">Sandy Loam / Light Soil (Rapid Drainage)</option>
+                </select>
+              </div>
+
+              <!-- Recent Rainfall -->
+              <div class="form-group">
+                <label for="irrRain" class="form-label" data-i18n="irrigation_recent_rain">Recent Rainfall (mm)</label>
+                <input type="number" id="irrRain" class="form-control" value="0" min="0" max="300" step="1">
+                <div class="form-hint">Enter mm of rainfall received in past 72 hours</div>
+              </div>
+
+              <!-- Irrigation Method -->
+              <div class="form-group">
+                <label for="irrMethod" class="form-label" data-i18n="irrigation_method">Irrigation Method</label>
+                <select id="irrMethod" class="form-control" required>
+                  <option value="drip" selected>Drip / Micro-Irrigation (High Efficiency)</option>
+                  <option value="sprinkler">Sprinkler System</option>
+                  <option value="flood">Surface Furrow / Flood</option>
+                </select>
+              </div>
+
+              <!-- Calculate Button -->
+              <div class="form-group" style="display: flex; align-items: flex-end;">
+                <button type="submit" class="btn btn-primary btn-block btn-lg" data-i18n="irrigation_btn_calc">
+                  Plan Irrigation Schedule
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Irrigation Recommendation Output -->
+          <div id="irrigationOutput" style="display: none; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border-subtle);">
+            <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: var(--radius-lg); padding: 1.5rem;">
+              <span class="badge badge-leaf" style="margin-bottom: 0.5rem;">Recommended Schedule</span>
+              <h3 id="irrRecText" style="font-size: 1.25rem; color: var(--color-dark-green); margin-bottom: 0.75rem;">
+                Irrigate every 4 days. Critical moisture sensitivity stage!
+              </h3>
+
+              <div class="grid grid-2" style="gap: 1rem; margin-top: 1rem;">
+                <div style="background: #FFFFFF; padding: 1rem; border-radius: var(--radius-md); border: 1px solid #E2E8F0;">
+                  <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-bottom: 0.25rem;">Optimal Time of Day:</div>
+                  <strong id="irrTimingText" style="color: var(--color-text-dark); font-size: 0.95rem;">Early Morning (6:00 AM – 9:00 AM)</strong>
+                </div>
+
+                <div style="background: #FFFFFF; padding: 1rem; border-radius: var(--radius-md); border: 1px solid #E2E8F0;">
+                  <div style="font-size: 0.775rem; color: var(--color-muted-text); margin-bottom: 0.25rem;">Recommended Duration / Volume:</div>
+                  <strong id="irrDurationText" style="color: var(--color-text-dark); font-size: 0.95rem;">2.0 – 2.5 hours</strong>
+                </div>
+              </div>
+
+              <div style="margin-top: 1rem; font-size: 0.85rem; color: #166534; line-height: 1.5;">
+                💡 <strong>Water Conservation Tip:</strong> <span id="irrSavingTip">Apply drip irrigation to minimize evaporation losses by up to 45% compared to surface flooding.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/weather-irrigation.js"></script>
+</body>
+</html>

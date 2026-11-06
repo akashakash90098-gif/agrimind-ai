@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Crop Planner — AgriMind AI | Guided Agronomic Suitability</title>
+  <meta name="description" content="Plan high-yield, water-efficient crops matched to your Indian state, season, soil type and irrigation availability with AgriMind AI's Crop Planner.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link active" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink active">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">AGRONOMIC ADAPTABILITY</span>
+        <h1 class="section-title" data-i18n="planner_title">Smart Crop Planner</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="planner_subtitle">
+          Get tailored crop suitability recommendations based on your state, season, soil type and irrigation availability.
+        </p>
+      </div>
+    </section>
+
+    <!-- Planning Form & Suggestions Section -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Transparent Rule-Based Model:</strong>
+            Recommendations are illustrative based on generalized agro-climatic patterns. Actual suitability depends on certified soil tests, local microclimate, planting dates, seed variety, and KVK guidance.
+          </div>
+        </div>
+
+        <!-- Guided Input Form -->
+        <div class="card" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.35rem; margin-bottom: 1.5rem; color: var(--color-dark-green);">
+            1. Enter Your Farm Parameters
+          </h2>
+
+          <form id="cropPlannerForm">
+            <div class="grid grid-3" style="gap: 1.25rem;">
+              <!-- State / Region -->
+              <div class="form-group">
+                <label for="plannerState" class="form-label" data-i18n="planner_state">State / Region</label>
+                <select id="plannerState" class="form-control" required>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Andhra Pradesh" selected>Andhra Pradesh</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Kerala">Kerala</option>
+                </select>
+              </div>
+
+              <!-- District (Optional) -->
+              <div class="form-group">
+                <label for="plannerDistrict" class="form-label">District / Taluk (Optional)</label>
+                <input type="text" id="plannerDistrict" class="form-control" placeholder="e.g. Guntur, Ludhiana, Nashik">
+              </div>
+
+              <!-- Season -->
+              <div class="form-group">
+                <label for="plannerSeason" class="form-label" data-i18n="planner_season">Farming Season</label>
+                <select id="plannerSeason" class="form-control" required>
+                  <option value="kharif" selected>Kharif (Monsoon / Summer: June – Oct)</option>
+                  <option value="rabi">Rabi (Winter: Oct – March)</option>
+                  <option value="zaid">Zaid (Summer: March – June)</option>
+                </select>
+              </div>
+
+              <!-- Soil Type -->
+              <div class="form-group">
+                <label for="plannerSoil" class="form-label" data-i18n="planner_soil">Soil Type</label>
+                <select id="plannerSoil" class="form-control" required>
+                  <option value="alluvial">Alluvial Loam (Indo-Gangetic & River Basins)</option>
+                  <option value="black" selected>Black Soil / Vertisol / Regur (Deccan)</option>
+                  <option value="red">Red & Yellow Loam (South & Central India)</option>
+                  <option value="clay-loam">Clay Loam (Heavy Water-Holding)</option>
+                  <option value="sandy">Sandy Loam / Light Arid</option>
+                  <option value="laterite">Laterite Soil (Coastal & Hill Tracts)</option>
+                </select>
+              </div>
+
+              <!-- Land Area & Unit -->
+              <div class="form-group">
+                <label for="plannerLandArea" class="form-label" data-i18n="planner_land">Land Area</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="number" id="plannerLandArea" class="form-control" value="2" min="0.1" step="0.1" required style="flex: 1;">
+                  <select id="plannerLandUnit" class="form-control" style="width: 120px;">
+                    <option value="acres" selected>Acres</option>
+                    <option value="hectares">Hectares</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Irrigation Source -->
+              <div class="form-group">
+                <label for="plannerIrrigation" class="form-label" data-i18n="planner_irrigation">Irrigation Source</label>
+                <select id="plannerIrrigation" class="form-control" required>
+                  <option value="borewell" selected>Tubewell / Borewell</option>
+                  <option value="canal">Canal Network</option>
+                  <option value="drip">Drip / Micro-Irrigation</option>
+                  <option value="rainfed">Rainfed (Dryland / No Irrigation)</option>
+                </select>
+              </div>
+
+              <!-- Water Availability -->
+              <div class="form-group">
+                <label for="plannerWater" class="form-label" data-i18n="planner_water">Water Availability</label>
+                <select id="plannerWater" class="form-control" required>
+                  <option value="abundant">Abundant (Canal or continuous borewell)</option>
+                  <option value="moderate" selected>Moderate (Reliable for 2-3 waterings)</option>
+                  <option value="scarce">Scarce (Rainfed or low groundwater)</option>
+                </select>
+              </div>
+
+              <!-- Crop Preference -->
+              <div class="form-group">
+                <label for="plannerPreference" class="form-label">Crop Category Preference (Optional)</label>
+                <select id="plannerPreference" class="form-control">
+                  <option value="any" selected>Any / Best Agro-Climatic Match</option>
+                  <option value="cereals">Cereals & Grains (Paddy, Wheat, Maize)</option>
+                  <option value="pulses">Pulses & Legumes (Gram, Soybean, Arhar)</option>
+                  <option value="oilseeds">Oilseeds (Mustard, Groundnut, Soybean)</option>
+                  <option value="cash">Commercial / Cash Crops (Cotton)</option>
+                  <option value="vegetables">Horticulture & Vegetables (Tomato)</option>
+                </select>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group" style="display: flex; align-items: flex-end;">
+                <button type="submit" class="btn btn-primary btn-block btn-lg" data-i18n="planner_get_recommendations">
+                  Get Crop Suggestions
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- =====================================================================
+             RECOMMENDATION RESULTS
+             ===================================================================== -->
+        <div id="plannerResults" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.5rem; color: var(--color-dark-green); margin-bottom: 0.25rem;">
+                Recommended Crops for Your Selected Parameters
+              </h2>
+              <p style="font-size: 0.875rem; color: var(--color-muted-text);">
+                Based on agronomic soil match, water availability thresholds, and season suitability.
+              </p>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button type="button" id="compareCropsBtn" class="btn btn-sm btn-outline-dark" style="display: none;" data-i18n="planner_compare">
+                📊 Compare Recommended Crops
+              </button>
+              <button type="button" id="changeInputsBtn" class="btn btn-sm btn-dark">
+                ✏️ Change Inputs
+              </button>
+            </div>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="suggestionsGrid" class="grid grid-3" style="gap: 1.75rem;"></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       COMPARE CROPS MODAL
+       ========================================================================= -->
+  <div id="compareCropsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+    <div class="modal-dialog" style="max-width: 900px;">
+      <div class="modal-header">
+        <h3 id="compareModalTitle" class="modal-title">Side-by-Side Crop Comparison</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Crop</th>
+                <th>Duration</th>
+                <th>Water Need</th>
+                <th>Expected Yield</th>
+                <th>Est. Investment</th>
+                <th>Market Demand</th>
+                <th>Soil Suitability</th>
+              </tr>
+            </thead>
+            <tbody id="compareTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/crop-planner.js"></script>
+</body>
+</html>

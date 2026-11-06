@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soil Intelligence — AgriMind AI | pH Gauge, NPK & Soil Health</title>
+  <meta name="description" content="Interactive soil health dashboard with real-time pH gauge, NPK macronutrient progress bars, soil improvement guidelines and crop compatibility matrix.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink active">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">SOIL HEALTH METRICS</span>
+        <h1 class="section-title" data-i18n="soil_title">Soil Intelligence Dashboard</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="soil_subtitle">
+          Evaluate soil pH balance, NPK macronutrient levels and get tailored soil health enhancement recommendations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Dashboard Section -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Sample Soil Data Notice:</strong>
+            All prefilled values are sample demo readings. Soil suitability interpretation depends on crop species, organic matter, soil texture, and local government Soil Health Card laboratory testing.
+          </div>
+        </div>
+
+        <!-- Preset Buttons Bar -->
+        <div style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="font-size: 0.875rem; font-weight: 700; color: var(--color-dark-green);">Test Regional Presets:</span>
+          <button type="button" class="soil-preset-btn btn btn-sm btn-outline-dark active" data-preset="alluvial">
+            Indo-Gangetic Alluvial (pH 7.2)
+          </button>
+          <button type="button" class="soil-preset-btn btn btn-sm btn-outline-dark" data-preset="black">
+            Deccan Black Cotton (pH 7.8)
+          </button>
+          <button type="button" class="soil-preset-btn btn btn-sm btn-outline-dark" data-preset="red">
+            South Red Sandy Loam (pH 6.2)
+          </button>
+          <button type="button" class="soil-preset-btn btn btn-sm btn-outline-dark" data-preset="alkaline">
+            Alkaline / Sodic (pH 8.8)
+          </button>
+        </div>
+
+        <!-- Dashboard Grid (Inputs on Left, Live Visuals on Right) -->
+        <div class="soil-dashboard-grid">
+
+          <!-- Left Column: Editable Parameters -->
+          <div class="card">
+            <h2 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--color-dark-green);">
+              Edit Soil Test Readings
+            </h2>
+
+            <!-- Soil pH Input & Slider -->
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                <label for="soilPhInput" class="form-label" style="margin: 0;" data-i18n="soil_ph_label">Soil pH Level</label>
+                <input type="number" id="soilPhInput" class="form-control" value="7.2" min="4.0" max="10.0" step="0.1" style="width: 85px; text-align: center; font-weight: 700; padding: 0.35rem;">
+              </div>
+              <input type="range" id="soilPhSlider" min="4.0" max="10.0" step="0.1" value="7.2" style="width: 100%; accent-color: var(--color-fresh-leaf); cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.725rem; color: var(--color-muted-text); margin-top: 0.25rem;">
+                <span>4.0 (Acidic)</span>
+                <span>7.0 (Neutral)</span>
+                <span>10.0 (Alkaline)</span>
+              </div>
+            </div>
+
+            <!-- Nitrogen (N) -->
+            <div class="form-group">
+              <label for="soilNInput" class="form-label" data-i18n="soil_n_label">Available Nitrogen (N) kg/ha</label>
+              <input type="number" id="soilNInput" class="form-control" value="240" min="0" max="500" step="5">
+              <div class="form-hint">Standard threshold: Low &lt;140, Medium 140–280, High &gt;280</div>
+            </div>
+
+            <!-- Phosphorus (P) -->
+            <div class="form-group">
+              <label for="soilPInput" class="form-label" data-i18n="soil_p_label">Available Phosphorus (P) kg/ha</label>
+              <input type="number" id="soilPInput" class="form-control" value="22" min="0" max="100" step="1">
+              <div class="form-hint">Standard threshold: Low &lt;11, Medium 11–25, High &gt;25</div>
+            </div>
+
+            <!-- Potassium (K) -->
+            <div class="form-group">
+              <label for="soilKInput" class="form-label" data-i18n="soil_k_label">Available Potassium (K) kg/ha</label>
+              <input type="number" id="soilKInput" class="form-control" value="210" min="0" max="600" step="5">
+              <div class="form-hint">Standard threshold: Low &lt;120, Medium 120–280, High &gt;280</div>
+            </div>
+
+            <!-- Moisture Content -->
+            <div class="form-group">
+              <label for="soilMoistureInput" class="form-label" data-i18n="soil_moisture_label">Soil Moisture Content (%)</label>
+              <input type="number" id="soilMoistureInput" class="form-control" value="38" min="0" max="100" step="1">
+              <div class="form-hint">Field capacity typically ranges between 30% and 45%</div>
+            </div>
+
+            <!-- Soil Type -->
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="soilTypeSelect" class="form-label" data-i18n="planner_soil">Soil Texture Classification</label>
+              <select id="soilTypeSelect" class="form-control">
+                <option value="alluvial" selected>Alluvial Loam</option>
+                <option value="black">Black Vertisol / Regur</option>
+                <option value="red">Red Sandy Loam</option>
+                <option value="clay-loam">Heavy Clay Loam</option>
+                <option value="sandy">Coarse Sandy Soil</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Dashboard -->
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+            <!-- pH Semi-Circular Gauge & Classification Card -->
+            <div class="card ph-gauge-card">
+              <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">Soil Reaction (pH Balance)</h3>
+              
+              <!-- SVG Semi-Circular Gauge -->
+              <div class="gauge-svg-wrapper">
+                <svg width="240" height="130" viewBox="0 0 240 130">
+                  <!-- Arc Bands: Acidic (Red), Mod Acid (Yellow), Neutral (Green), Alkaline (Blue), Mod Alk (Purple) -->
+                  <path d="M 20 120 A 100 100 0 0 1 54 49" fill="none" stroke="#EF4444" stroke-width="16" stroke-linecap="round"/>
+                  <path d="M 54 49 A 100 100 0 0 1 100 22" fill="none" stroke="#F59E0B" stroke-width="16"/>
+                  <path d="M 100 22 A 100 100 0 0 1 140 22" fill="none" stroke="#10B981" stroke-width="16"/>
+                  <path d="M 140 22 A 100 100 0 0 1 186 49" fill="none" stroke="#3B82F6" stroke-width="16"/>
+                  <path d="M 186 49 A 100 100 0 0 1 220 120" fill="none" stroke="#8B5CF6" stroke-width="16" stroke-linecap="round"/>
+
+                  <!-- Center Pivot & Needle -->
+                  <circle cx="120" cy="120" r="8" fill="var(--color-deep-forest)"/>
+                  <g id="gaugeNeedle" class="gauge-needle">
+                    <line x1="120" y1="120" x2="120" y2="35" stroke="var(--color-deep-forest)" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="120" cy="35" r="4" fill="var(--color-deep-forest)"/>
+                  </g>
+                </svg>
+              </div>
+
+              <div id="phValueDisplay" class="gauge-value-display">7.2</div>
+              <div id="phCategoryPill" class="badge badge-leaf" style="font-size: 0.85rem; padding: 0.35rem 0.85rem; margin-top: 0.25rem;">
+                Neutral / Optimal Buffer Zone
+              </div>
+            </div>
+
+            <!-- NPK Macronutrient Progress Bars Card -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 1.25rem;">NPK Nutrient Balance</h3>
+
+              <!-- Nitrogen Bar -->
+              <div class="npk-bar-group">
+                <div class="npk-label-row">
+                  <span>Nitrogen (N): <strong id="nValText">240 kg/ha</strong></span>
+                  <span id="nStatusPill" class="badge badge-leaf">Sufficient (140-280)</span>
+                </div>
+                <div class="progress-track">
+                  <div id="nBarFill" class="progress-fill progress-fill-n" style="width: 68%;"></div>
+                </div>
+                <div class="npk-thresholds">
+                  <span>0</span>
+                  <span>140 (Low)</span>
+                  <span>280 (Sufficient)</span>
+                  <span>350+</span>
+                </div>
+              </div>
+
+              <!-- Phosphorus Bar -->
+              <div class="npk-bar-group">
+                <div class="npk-label-row">
+                  <span>Phosphorus (P): <strong id="pValText">22 kg/ha</strong></span>
+                  <span id="pStatusPill" class="badge badge-leaf">Sufficient (11-25)</span>
+                </div>
+                <div class="progress-track">
+                  <div id="pBarFill" class="progress-fill progress-fill-p" style="width: 55%;"></div>
+                </div>
+                <div class="npk-thresholds">
+                  <span>0</span>
+                  <span>11 (Low)</span>
+                  <span>25 (Sufficient)</span>
+                  <span>40+</span>
+                </div>
+              </div>
+
+              <!-- Potassium Bar -->
+              <div class="npk-bar-group">
+                <div class="npk-label-row">
+                  <span>Potassium (K): <strong id="kValText">210 kg/ha</strong></span>
+                  <span id="kStatusPill" class="badge badge-leaf">Sufficient (120-280)</span>
+                </div>
+                <div class="progress-track">
+                  <div id="kBarFill" class="progress-fill progress-fill-k" style="width: 55%;"></div>
+                </div>
+                <div class="npk-thresholds">
+                  <span>0</span>
+                  <span>120 (Low)</span>
+                  <span>280 (Sufficient)</span>
+                  <span>380+</span>
+                </div>
+              </div>
+
+              <!-- Moisture Bar -->
+              <div class="npk-bar-group" style="margin-bottom: 0;">
+                <div class="npk-label-row">
+                  <span>Moisture: <strong id="moistureValText">38% (Optimal Field Capacity)</strong></span>
+                </div>
+                <div class="progress-track">
+                  <div id="moistureBarFill" class="progress-fill" style="width: 38%; background-color: #06B6D4;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agronomic Advice & Suggestions Card -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.75rem;">
+                Soil Improvement & Fertility Guidelines
+              </h3>
+              <p id="soilSummaryText" style="font-size: 0.9rem; line-height: 1.6; color: var(--color-text-body); margin-bottom: 1rem;">
+                The soil is in a balanced, productive neutral pH range. Nutrient availability for major macronutrients (N, P, K) and essential micronutrients is generally optimal.
+              </p>
+              <ul id="soilImprovementList" style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--color-text-body); display: flex; flex-direction: column; gap: 0.5rem; list-style-type: disc;"></ul>
+            </div>
+
+            <!-- Crop Suitability Matrix Card -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+                Sample Crop Compatibility Comparison
+              </h3>
+              <p style="font-size: 0.825rem; color: var(--color-muted-text); margin-bottom: 1rem;">
+                Shows crop tolerance based on current pH range and macronutrient availability.
+              </p>
+              <div id="cropMatrixGrid" class="crop-matrix-grid"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/soil-intelligence.js"></script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriMind AI — Intelligent Farming Platform | Grow Smarter. Farm Better.</title>
+  <meta name="description" content="AgriMind AI empowers Indian farmers with AI-driven crop disease diagnosis, guided crop planning, real-time soil intelligence, weather guidance, and mandi market insights.">
+  <meta name="theme-color" content="#10251D">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="AgriMind AI — Intelligent Farming Platform">
+  <meta property="og:description" content="Discover a smarter way to farm with crop insights, soil intelligence, weather guidance and AI-powered farming tools — all in one place.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <!-- Leaf SVG Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
+        
+        <!-- Tools Dropdown -->
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div>
+                <strong data-i18n="nav_doctor">AI Crop Doctor</strong>
+                <div style="font-size: 0.75rem; color: var(--color-muted-light);">Leaf disease scanning & care</div>
+              </div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div>
+                <strong data-i18n="nav_planner">Crop Planner</strong>
+                <div style="font-size: 0.75rem; color: var(--color-muted-light);">Soil & season crop match</div>
+              </div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div>
+                <strong data-i18n="nav_soil">Soil Intelligence</strong>
+                <div style="font-size: 0.75rem; color: var(--color-muted-light);">pH gauge & NPK nutrition</div>
+              </div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div>
+                <strong data-i18n="nav_weather">Weather & Irrigation</strong>
+                <div style="font-size: 0.75rem; color: var(--color-muted-light);">5-day forecast & watering plan</div>
+              </div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div>
+                <strong data-i18n="nav_profit">Profit Calculator</strong>
+                <div style="font-size: 0.75rem; color: var(--color-muted-light);">Harvest economics & margins</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <!-- Nav Actions: Language Selector & CTA -->
+      <div class="nav-actions">
+        <!-- Regional Language Selector -->
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <!-- Globe Icon -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+            </svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en">
+              <span>English</span>
+              <span>EN</span>
+            </button>
+            <button type="button" class="lang-option" data-lang="te">
+              <span>తెలుగు (Telugu)</span>
+              <span>TE</span>
+            </button>
+            <button type="button" class="lang-option" data-lang="ta">
+              <span>தமிழ் (Tamil)</span>
+              <span>TA</span>
+            </button>
+            <button type="button" class="lang-option" data-lang="hi">
+              <span>हिन्दी (Hindi)</span>
+              <span>HI</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+
+        <!-- Mobile Toggle Button -->
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link active" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+    <div style="margin-top: 1rem;">
+      <a href="crop-doctor.html" class="btn btn-primary btn-block" data-i18n="btn_explore_tools">Explore AI Tools</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         2. CINEMATIC HERO SECTION
+         ========================================================================= -->
+    <section class="hero-section" aria-labelledby="heroHeadline">
+      <div class="hero-particles"></div>
+      <div class="container hero-content">
+        <!-- Left: Editorial Typography & CTAs -->
+        <div class="hero-text-col reveal active">
+          <div class="hero-badge">
+            <!-- Sparkles SVG Icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span data-i18n="trust_label">Built for the next generation of Indian farming.</span>
+          </div>
+
+          <h1 id="heroHeadline" class="hero-title">
+            Grow Smarter.<br>
+            <span class="lime-text">Farm Better.</span>
+          </h1>
+
+          <p class="hero-subtitle" data-i18n="hero_subheadline">
+            Discover a smarter way to farm with crop insights, soil intelligence, weather guidance and AI-powered farming tools — all in one place.
+          </p>
+
+          <div class="hero-actions">
+            <a href="crop-doctor.html" class="btn btn-primary btn-lg" data-i18n="btn_explore_tools">
+              Explore AI Tools
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="crop-planner.html" class="btn btn-secondary btn-lg" data-i18n="btn_discover_crop">
+              Discover Your Crop
+            </a>
+          </div>
+
+          <div class="hero-trust-bar">
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Zero mandatory subscription</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>English, Telugu, Tamil & Hindi</span>
+            </div>
+            <div class="hero-trust-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Scientific agronomy rules</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Layered Agricultural Visual & Floating Cards -->
+        <div class="hero-visual-card reveal reveal-delay-2 active">
+          <div class="hero-main-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1000&q=80" 
+                 alt="Indian farmer inspecting lush green crops at sunrise" 
+                 loading="eager">
+          </div>
+
+          <!-- Floating Stat Card 1 -->
+          <div class="hero-float-card hero-float-1">
+            <div class="float-stat-header">
+              <span data-i18n="hero_stat_1_label">Soil Moisture Demo</span>
+              <span class="demo-tag-tiny" data-i18n="demo_badge">Demo Data</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+              <span class="float-stat-val">38%</span>
+              <span class="badge badge-lime" style="font-size: 0.65rem;" data-i18n="hero_stat_opt">Optimal</span>
+            </div>
+            <div style="font-size: 0.725rem; color: var(--color-muted-light); margin-top: 0.25rem;">
+              Clay loam root zone status
+            </div>
+          </div>
+
+          <!-- Floating Stat Card 2 -->
+          <div class="hero-float-card hero-float-2">
+            <div class="float-stat-header">
+              <span data-i18n="hero_stat_2_label">Crop Health Index</span>
+              <span class="demo-tag-tiny" data-i18n="demo_badge">Demo Data</span>
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+              <span class="float-stat-val">96.4%</span>
+              <span class="badge badge-leaf" style="font-size: 0.65rem;" data-i18n="hero_stat_vigorous">Vigorous</span>
+            </div>
+            <div style="font-size: 0.725rem; color: var(--color-muted-light); margin-top: 0.25rem;">
+              Vegetative tiller formation
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. CHALLENGE & SOLUTION INTRODUCTION
+         ========================================================================= -->
+    <section class="section section-warm" aria-labelledby="challengeHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">THE AGRICULTURAL LANDSCAPE</span>
+          <h2 id="challengeHeading" class="section-title">Bridging Complex Science and Daily Farming Realities</h2>
+          <p class="section-subtitle">
+            Indian farmers face erratic rainfall patterns, unexpected pest outbreaks, degrading soil organic matter, and volatile market prices. AgriMind AI brings together science-backed decision tools in simple regional formats.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="card reveal reveal-delay-1">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: #FEE2E2; color: #DC2626; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Uncertain Disease Outbreaks</h3>
+            <p style="font-size: 0.9rem; color: var(--color-muted-text); line-height: 1.6;">
+              Blights, wilts, and leaf curls cause up to 30% yield loss when diagnosed late. Farmers often spend heavily on unverified pesticide sprays without knowing the exact causal pathogen.
+            </p>
+          </div>
+
+          <div class="card reveal reveal-delay-2">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: #FEF3C7; color: #D97706; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Imbalanced Fertilizer Application</h3>
+            <p style="font-size: 0.9rem; color: var(--color-muted-text); line-height: 1.6;">
+              Surplus urea usage has skewed N:P:K ratios across major agricultural tracts, degrading soil microbial activity and increasing pest vulnerability.
+            </p>
+          </div>
+
+          <div class="card reveal reveal-delay-3">
+            <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--color-leaf-light); color: var(--color-success); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">The AgriMind AI Solution</h3>
+            <p style="font-size: 0.9rem; color: var(--color-muted-text); line-height: 1.6;">
+              Transparent agronomic models that turn leaf photos, soil readings, and weather forecasts into clear, actionable farming guidance tailored to Indian agro-climatic conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. INTERACTIVE AI TOOLS SHOWCASE
+         ========================================================================= -->
+    <section class="section" id="tools" aria-labelledby="toolsHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="section_tools_eyebrow">INTELLIGENT FARMING CAPABILITIES</span>
+          <h2 id="toolsHeading" class="section-title" data-i18n="section_tools_title">AI-Powered Decision Tools for Every Acre</h2>
+          <p class="section-subtitle" data-i18n="section_tools_subtitle">
+            From leaf health diagnosis to market price trends, AgriMind brings scientific precision into the hands of every farmer.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          <!-- Tool 1: Crop Doctor -->
+          <div class="tool-card reveal reveal-delay-1">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            </div>
+            <span class="badge badge-lime" style="align-self: flex-start; margin-bottom: 0.75rem;">Instant Analysis</span>
+            <h3 data-i18n="nav_doctor">AI Crop Doctor</h3>
+            <p data-i18n="doctor_subtitle">
+              Upload a photo of your affected crop leaf to receive illustrative disease indicators and preventive management steps.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Visual Scanning Demo</span>
+              <a href="crop-doctor.html" class="btn btn-sm btn-outline-dark">Diagnose Now →</a>
+            </div>
+          </div>
+
+          <!-- Tool 2: Crop Planner -->
+          <div class="tool-card reveal reveal-delay-2">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M12 2v20"/><path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-5 5"/><path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 5 5"/></svg>
+            </div>
+            <span class="badge badge-leaf" style="align-self: flex-start; margin-bottom: 0.75rem;">Rule-Based Engine</span>
+            <h3 data-i18n="nav_planner">Smart Crop Planner</h3>
+            <p data-i18n="planner_subtitle">
+              Get tailored crop suitability recommendations based on your state, season, soil type and irrigation availability.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Agro-Climatic Match</span>
+              <a href="crop-planner.html" class="btn btn-sm btn-outline-dark">Plan Crops →</a>
+            </div>
+          </div>
+
+          <!-- Tool 3: Soil Intelligence -->
+          <div class="tool-card reveal reveal-delay-3">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>
+            </div>
+            <span class="badge badge-info" style="align-self: flex-start; margin-bottom: 0.75rem;">Interactive Dashboard</span>
+            <h3 data-i18n="nav_soil">Soil Intelligence</h3>
+            <p data-i18n="soil_subtitle">
+              Evaluate soil pH balance, NPK macronutrient levels and get tailored soil health enhancement recommendations.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Visual pH Gauge</span>
+              <a href="soil-intelligence.html" class="btn btn-sm btn-outline-dark">Check Soil →</a>
+            </div>
+          </div>
+
+          <!-- Tool 4: Weather & Irrigation -->
+          <div class="tool-card reveal reveal-delay-1">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg>
+            </div>
+            <span class="badge badge-warning" style="align-self: flex-start; margin-bottom: 0.75rem;">Water Management</span>
+            <h3 data-i18n="nav_weather">Weather & Irrigation</h3>
+            <p data-i18n="weather_subtitle">
+              Access demo 5-day agro-meteorological forecasts and calculate custom irrigation intervals to preserve water.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Save Groundwater</span>
+              <a href="weather-irrigation.html" class="btn btn-sm btn-outline-dark">Schedule Water →</a>
+            </div>
+          </div>
+
+          <!-- Tool 5: Mandi Market -->
+          <div class="tool-card reveal reveal-delay-2">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>
+            </div>
+            <span class="badge badge-lime" style="align-self: flex-start; margin-bottom: 0.75rem;">Price Intelligence</span>
+            <h3 data-i18n="nav_market">Mandi Market Insights</h3>
+            <p data-i18n="mandi_subtitle">
+              Track sample modal prices, market arrivals and calculate potential farm-gate revenue for major agricultural commodities.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Price Comparisons</span>
+              <a href="mandi-market.html" class="btn btn-sm btn-outline-dark">View Prices →</a>
+            </div>
+          </div>
+
+          <!-- Tool 6: Profit Calculator -->
+          <div class="tool-card reveal reveal-delay-3">
+            <div class="tool-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            </div>
+            <span class="badge badge-leaf" style="align-self: flex-start; margin-bottom: 0.75rem;">Farm Economics</span>
+            <h3 data-i18n="nav_profit">Farm Profit Calculator</h3>
+            <p data-i18n="profit_subtitle">
+              Project harvest revenues, break down operational expenses, and calculate net profit margins per acre or hectare.
+            </p>
+            <div class="tool-card-footer">
+              <span style="font-size: 0.825rem; color: var(--color-muted-text);">Cost Breakdown</span>
+              <a href="profit-calculator.html" class="btn btn-sm btn-outline-dark">Calculate Economics →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. FEATURED CROP DOCTOR PREVIEW
+         ========================================================================= -->
+    <section class="section section-dark" aria-labelledby="doctorPreviewHeading">
+      <div class="container">
+        <div class="grid grid-2 items-center">
+          <div class="reveal">
+            <span class="section-eyebrow">AI CROP DOCTOR SPOTLIGHT</span>
+            <h2 id="doctorPreviewHeading" class="section-title">Detect Crop Diseases Before They Spread</h2>
+            <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+              Early diagnosis of bacterial blights, powdery mildews, and viral leaf curls can protect up to 40% of crop value. Test our interactive image scanning demo to explore sample diagnosis workflows and cultural preventive measures.
+            </p>
+
+            <ul style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; font-size: 0.95rem; color: var(--color-muted-light);">
+              <li style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-lime);">✓</span>
+                Instant drag-and-drop or sample leaf testing
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-lime);">✓</span>
+                Detailed symptom verification and prevention protocols
+              </li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-lime);">✓</span>
+                Safe cultural practices and extension officer advisory steps
+              </li>
+            </ul>
+
+            <a href="crop-doctor.html" class="btn btn-primary btn-lg" data-i18n="btn_analyze_now">Analyze Crop Leaf Now</a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="card card-dark" style="padding: 1.5rem; text-align: center;">
+              <img src="https://images.unsplash.com/photo-1592417817098-8f3d6910a394?auto=format&fit=crop&w=800&q=80" 
+                   alt="Sample diseased crop leaf under inspection" 
+                   style="border-radius: var(--radius-md); width: 100%; height: 260px; object-fit: cover; margin-bottom: 1.25rem;">
+              
+              <div style="display: flex; justify-content: space-between; align-items: center; text-align: left; background: rgba(0,0,0,0.25); padding: 0.85rem 1rem; border-radius: var(--radius-sm);">
+                <div>
+                  <div style="font-weight: 700; color: var(--color-lime); font-size: 0.95rem;">Early Blight (Alternaria solani)</div>
+                  <div style="font-size: 0.75rem; color: var(--color-muted-light);">Tomato leaf sample • Concentric target rings</div>
+                </div>
+                <span class="badge badge-warning">Sample Result</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SMART CROP PLANNING PREVIEW
+         ========================================================================= -->
+    <section class="section section-warm" aria-labelledby="plannerPreviewHeading">
+      <div class="container">
+        <div class="grid grid-2 items-center">
+          <div class="reveal">
+            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Golden wheat harvest field in northern India" 
+                 style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); width: 100%; height: 360px; object-fit: cover;">
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <span class="section-eyebrow">GUIDED RECOMMENDATIONS</span>
+            <h2 id="plannerPreviewHeading" class="section-title">The Right Crop for Your Specific Soil & Season</h2>
+            <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+              Choosing what to plant shouldn't be guesswork. Our Smart Crop Planner cross-references your state, farming season (Kharif, Rabi, or Zaid), soil texture, and available irrigation to suggest resilient, high-yield options.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">
+                <div style="font-weight: 700; color: var(--color-dark-green); margin-bottom: 0.25rem;">Water Optimization</div>
+                <div style="font-size: 0.825rem; color: var(--color-muted-text);">Filter crops by low, moderate or high water availability.</div>
+              </div>
+              <div style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">
+                <div style="font-weight: 700; color: var(--color-dark-green); margin-bottom: 0.25rem;">Side-by-Side Comparison</div>
+                <div style="font-size: 0.825rem; color: var(--color-muted-text);">Compare duration, investment and market demand directly.</div>
+              </div>
+            </div>
+
+            <a href="crop-planner.html" class="btn btn-dark" data-i18n="btn_discover_crop">Discover Your Crop</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. FEATURED CROP GUIDES & KNOWLEDGE PREVIEW
+         ========================================================================= -->
+    <section class="section" aria-labelledby="knowledgePreviewHeading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">AGRICULTURAL KNOWLEDGE HUB</span>
+          <h2 id="knowledgePreviewHeading" class="section-title">Practical Agronomy & Sustainable Practices</h2>
+          <p class="section-subtitle">
+            Explore peer-reviewed farming guides on water conservation, soil rebuilding, integrated pest management, and farm business fundamentals.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="article-card reveal reveal-delay-1">
+            <img class="article-card-img" src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=800&q=80" alt="Drip irrigation pipes in vegetable farm" loading="lazy">
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="badge badge-leaf">Irrigation</span>
+                <span>⏱ 6 min read</span>
+              </div>
+              <h3 class="article-card-title">
+                <a href="article.html?id=1">Precision Drip Irrigation: How Indian Farmers Cut Water Usage by 45%</a>
+              </h3>
+              <p class="article-card-summary">
+                A practical guide to drip lateral design, sub-main filtration, and fertigation scheduling that saves groundwater while boosting crop uniform weight.
+              </p>
+              <div style="margin-top: auto;">
+                <a href="article.html?id=1" class="btn btn-sm btn-outline-dark">Read Guide →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card reveal reveal-delay-2">
+            <img class="article-card-img" src="https://images.unsplash.com/photo-1536657464919-892534f60d6e?auto=format&fit=crop&w=800&q=80" alt="Lush green paddy seedlings in nursery" loading="lazy">
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="badge badge-leaf">Crop Cultivation</span>
+                <span>⏱ 7 min read</span>
+              </div>
+              <h3 class="article-card-title">
+                <a href="article.html?id=2">System of Rice Intensification (SRI): Maximizing Paddy Yields With Less Seed</a>
+              </h3>
+              <p class="article-card-summary">
+                Transform rice farming using 8-12 day young single seedlings, wide square spacing (25x25 cm), and alternate wetting and drying.
+              </p>
+              <div style="margin-top: auto;">
+                <a href="article.html?id=2" class="btn btn-sm btn-outline-dark">Read Guide →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="article-card reveal reveal-delay-3">
+            <img class="article-card-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Fresh agricultural produce at market stall" loading="lazy">
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="badge badge-leaf">Farm Business</span>
+                <span>⏱ 7 min read</span>
+              </div>
+              <h3 class="article-card-title">
+                <a href="article.html?id=6">Farm Business Basics: Understanding Mandi Price Seasonality & e-NAM Trading</a>
+              </h3>
+              <p class="article-card-summary">
+                Master market arrival cycles, assaying quality parameters, and trading across state APMCs using the national electronic agriculture market.
+              </p>
+              <div style="margin-top: auto;">
+                <a href="article.html?id=6" class="btn btn-sm btn-outline-dark">Read Guide →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;" class="reveal">
+          <a href="knowledge-hub.html" class="btn btn-outline-dark btn-lg">Explore Full Knowledge Hub →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. CALL TO ACTION BANNER
+         ========================================================================= -->
+    <section class="section section-dark" style="padding: 4.5rem 0;" aria-label="Call to Action">
+      <div class="container text-center reveal">
+        <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 1rem; color: var(--color-pure-white);">
+          Ready to Bring Intelligent Insights to Your Farm?
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--color-muted-light); max-width: 650px; margin: 0 auto 2rem auto;">
+          Join thousands of farmers exploring crop health, soil diagnostics, and farm economics on AgriMind AI.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="crop-doctor.html" class="btn btn-primary btn-lg" data-i18n="btn_explore_tools">Explore AI Tools</a>
+          <a href="profit-calculator.html" class="btn btn-secondary btn-lg" data-i18n="btn_calculate">Calculate Profit</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       9. SITE FOOTER
+       ========================================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand & Mission -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+          <div class="footer-trust-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Educational Prototype • Client-Side Execution</span>
+          </div>
+        </div>
+
+        <!-- Col 2: AI Tools -->
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Regional Support & Farmer Helpline -->
+        <div class="footer-col">
+          <h4>Farmer Helpline</h4>
+          <p style="font-size: 0.85rem; color: var(--color-muted-light); margin-bottom: 0.75rem;">
+            Official Kisan Call Centre toll-free support across India:
+          </p>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem;">
+            📞 1800-180-1551
+          </div>
+          <div style="font-size: 0.8rem; color: var(--color-muted-light);">
+            Available 6:00 AM to 10:00 PM, 7 days a week in 22 regional languages.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farming Knowledge Hub — AgriMind AI | Practical Agronomic Guides</title>
+  <meta name="description" content="Searchable agricultural knowledge center with practical guides on drip irrigation, soil salinity, integrated pest management, organic conversion, and farm business.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link active" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link active" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">RESEARCH & PRACTICE</span>
+        <h1 class="section-title" data-i18n="hub_title">Farming Knowledge Hub</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="hub_subtitle">
+          Practical, research-backed guides on modern agronomy, soil regeneration, pest control, and farm economics.
+        </p>
+
+        <!-- Search Input Bar -->
+        <div style="max-width: 580px; margin: 2rem auto 0 auto; position: relative;">
+          <input type="text" id="hubSearchInput" class="form-control form-control-dark" placeholder="Search farming articles, crop guides..." data-i18n-placeholder="hub_search_placeholder" style="padding: 1rem 1.25rem; font-size: 1.05rem; border-radius: var(--radius-full);">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Category Filter Chips -->
+        <div class="hub-categories" role="tablist" aria-label="Article categories">
+          <button type="button" class="category-chip active" data-cat="all" role="tab" aria-selected="true">All Topics</button>
+          <button type="button" class="category-chip" data-cat="crop-cultivation" role="tab" aria-selected="false">Crop Cultivation</button>
+          <button type="button" class="category-chip" data-cat="soil-health" role="tab" aria-selected="false">Soil Health</button>
+          <button type="button" class="category-chip" data-cat="irrigation" role="tab" aria-selected="false">Irrigation</button>
+          <button type="button" class="category-chip" data-cat="pest-prevention" role="tab" aria-selected="false">Pest Prevention</button>
+          <button type="button" class="category-chip" data-cat="organic-farming" role="tab" aria-selected="false">Organic Farming</button>
+          <button type="button" class="category-chip" data-cat="farm-business-basics" role="tab" aria-selected="false">Farm Business Basics</button>
+        </div>
+
+        <!-- Featured Article Banner -->
+        <div class="card" style="margin-bottom: 2.5rem; padding: 0; overflow: hidden; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;">
+          <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1000&q=80" 
+               alt="Drip lateral line in vegetable row" 
+               style="width: 100%; height: 100%; min-height: 280px; object-fit: cover;">
+          <div style="padding: clamp(1.5rem, 3vw, 2.5rem);">
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span class="badge badge-lime">Featured Guide</span>
+              <span class="badge badge-leaf">Irrigation</span>
+            </div>
+            <h2 style="font-size: clamp(1.4rem, 2vw, 1.8rem); margin-bottom: 0.75rem; color: var(--color-dark-green); line-height: 1.3;">
+              <a href="article.html?id=1">Precision Drip Irrigation: How Indian Farmers Cut Water Usage by 45%</a>
+            </h2>
+            <p style="font-size: 0.925rem; color: var(--color-muted-text); line-height: 1.6; margin-bottom: 1.5rem;">
+              A practical guide to drip lateral design, sub-main filtration, and fertigation scheduling that saves groundwater while boosting crop uniform weight.
+            </p>
+            <a href="article.html?id=1" class="btn btn-primary">Read Complete Guide →</a>
+          </div>
+        </div>
+
+        <!-- Articles Grid -->
+        <div id="hubArticlesGrid" class="grid grid-3" style="gap: 1.75rem;">
+          <!-- Dynamically populated by knowledge-hub.js -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/knowledge-hub.js"></script>
+</body>
+</html>

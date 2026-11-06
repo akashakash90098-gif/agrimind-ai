@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Profit Calculator — AgriMind AI | Harvest Economics & Margins</title>
+  <meta name="description" content="Calculate gross farm revenues, operational input costs, break-even price and net profit margins per acre or hectare with AgriMind AI's Farm Profit Calculator.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink active">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow" data-i18n="section_tools_eyebrow">FARM ECONOMICS & BUDGETING</span>
+        <h1 class="section-title" data-i18n="profit_title">Farm Profit Calculator</h1>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="profit_subtitle">
+          Project harvest revenues, break down operational expenses, and calculate net profit margins per acre or hectare.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Disclaimer Banner -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Economics Estimation Disclaimer:</strong>
+            Calculations depend strictly on user inputs and standard arithmetic formulas. Results are illustrative estimates and do not guarantee future market prices, auction outcomes, or actual yields.
+          </div>
+        </div>
+
+        <!-- Quick Scenario Presets -->
+        <div style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span style="font-size: 0.875rem; font-weight: 700; color: var(--color-dark-green);">Load Example Crop Profile:</span>
+          <button type="button" class="profit-preset-btn btn btn-sm btn-outline-dark active" data-preset="tomato">
+            🍅 1 Acre Hybrid Tomato (High Value)
+          </button>
+          <button type="button" class="profit-preset-btn btn btn-sm btn-outline-dark" data-preset="wheat">
+            🌾 5 Acres Wheat (North Grain)
+          </button>
+          <button type="button" class="profit-preset-btn btn btn-sm btn-outline-dark" data-preset="cotton">
+            ☁️ 2 Acres Cotton (Commercial)
+          </button>
+        </div>
+
+        <!-- Dual Column Calculator Grid -->
+        <div class="calculator-grid">
+
+          <!-- Left Column: Input Form -->
+          <div class="card">
+            <h2 style="font-size: 1.3rem; margin-bottom: 1.25rem; color: var(--color-dark-green);">
+              Enter Crop Production Parameters
+            </h2>
+
+            <form id="profitCalcForm">
+              <!-- Crop & Area -->
+              <div class="form-group">
+                <label for="calcCropName" class="form-label">Crop Name</label>
+                <input type="text" id="calcCropName" class="form-control" value="Hybrid Tomato (Trellis)">
+              </div>
+
+              <div class="grid grid-2" style="gap: 1rem;">
+                <div class="form-group">
+                  <label for="calcArea" class="form-label">Cultivated Land Area</label>
+                  <input type="number" id="calcArea" class="form-control" value="1" min="0.1" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="calcUnit" class="form-label">Area Unit</label>
+                  <select id="calcUnit" class="form-control">
+                    <option value="acres" selected>Acres</option>
+                    <option value="hectares">Hectares</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Yield & Selling Price -->
+              <div class="grid grid-2" style="gap: 1rem;">
+                <div class="form-group">
+                  <label for="calcYield" class="form-label">Expected Yield per Unit (Qtl)</label>
+                  <input type="number" id="calcYield" class="form-control" value="180" min="0" step="1" required>
+                  <div class="form-hint">In Quintals (1 Qtl = 100 kg)</div>
+                </div>
+
+                <div class="form-group">
+                  <label for="calcPrice" class="form-label">Selling Price per Quintal (₹)</label>
+                  <input type="number" id="calcPrice" class="form-control" value="1600" min="0" step="10" required>
+                  <div class="form-hint">Expected Mandi / Farmgate rate</div>
+                </div>
+              </div>
+
+              <!-- Production Expense Breakdown -->
+              <h3 style="font-size: 1.05rem; margin: 1.5rem 0 0.85rem 0; color: var(--color-dark-green); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.5rem;">
+                Itemized Operational Expenses (₹ Total)
+              </h3>
+
+              <div class="grid grid-2" style="gap: 0.85rem;">
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costSeed" class="form-label" style="font-size: 0.825rem;">Seed / Nursery Cost (₹)</label>
+                  <input type="number" id="costSeed" class="form-control" value="8500" min="0" step="100">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costFertilizer" class="form-label" style="font-size: 0.825rem;">Fertilizers & Nutrients (₹)</label>
+                  <input type="number" id="costFertilizer" class="form-control" value="18000" min="0" step="100">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costPesticide" class="form-label" style="font-size: 0.825rem;">Crop Protection & Sprays (₹)</label>
+                  <input type="number" id="costPesticide" class="form-control" value="12000" min="0" step="100">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costLabor" class="form-label" style="font-size: 0.825rem;">Labor (Weeding, Picking) (₹)</label>
+                  <input type="number" id="costLabor" class="form-control" value="28000" min="0" step="100">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costIrrigation" class="form-label" style="font-size: 0.825rem;">Irrigation, Electricity & Fuel (₹)</label>
+                  <input type="number" id="costIrrigation" class="form-control" value="6500" min="0" step="100">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                  <label for="costMachinery" class="form-label" style="font-size: 0.825rem;">Tractor Hire & Transport (₹)</label>
+                  <input type="number" id="costMachinery" class="form-control" value="8000" min="0" step="100">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 0.5rem;">
+                <label for="costOther" class="form-label" style="font-size: 0.825rem;">Other Expenses & Contingencies (₹)</label>
+                <input type="number" id="costOther" class="form-control" value="5000" min="0" step="100">
+              </div>
+
+              <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+                <button type="button" id="calcResetBtn" class="btn btn-outline-dark" data-i18n="btn_reset">
+                  Reset Calculator
+                </button>
+                <button type="button" id="calcPrintBtn" class="btn btn-dark" data-i18n="btn_print">
+                  Print Estimate Summary
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Live Economics Dashboard -->
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+            <!-- Net Profit Hero Display -->
+            <div class="calc-summary-hero">
+              <span class="badge badge-lime">Harvest Economics Summary</span>
+              
+              <div class="calc-profit-display">
+                <div>
+                  <div style="font-size: 0.85rem; color: var(--color-muted-light);" data-i18n="profit_net_profit">Estimated Net Profit</div>
+                  <div id="outNetProfit" class="calc-profit-val positive">+₹2,02,000</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 0.85rem; color: var(--color-muted-light);" data-i18n="profit_margin">Profit Margin</div>
+                  <div id="outProfitMargin" style="font-size: 1.8rem; font-weight: 800; color: var(--color-lime);">70.1%</div>
+                </div>
+              </div>
+
+              <!-- Top KPIs -->
+              <div class="calc-kpi-grid">
+                <div class="calc-kpi-item">
+                  <div class="label" data-i18n="profit_gross_revenue">Gross Revenue</div>
+                  <div id="outGrossRevenue" class="number">₹2,88,000</div>
+                </div>
+
+                <div class="calc-kpi-item">
+                  <div class="label" data-i18n="profit_total_expenses">Total Expenses</div>
+                  <div id="outTotalExpenses" class="number">₹86,000</div>
+                </div>
+
+                <div class="calc-kpi-item">
+                  <div class="label">Total Estimated Yield</div>
+                  <div id="outTotalYield" class="number">180 Quintals</div>
+                </div>
+
+                <div class="calc-kpi-item">
+                  <div class="label" data-i18n="profit_roi">Return on Investment (ROI)</div>
+                  <div id="outRoi" class="number">234.9%</div>
+                </div>
+              </div>
+
+              <!-- Break-Even Price -->
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: var(--color-muted-light); display: flex; justify-content: space-between;">
+                <span>Minimum Break-Even Price:</span>
+                <strong id="outBreakevenPrice" style="color: var(--color-pure-white);">₹478 / Qtl</strong>
+              </div>
+            </div>
+
+            <!-- Cost Breakdown Stacked Visualizer -->
+            <div class="card">
+              <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.35rem;">
+                Cost Breakdown by Category
+              </h3>
+              <p style="font-size: 0.825rem; color: var(--color-muted-text); margin-bottom: 1rem;">
+                Visual proportion of production expenses across operational components.
+              </p>
+
+              <!-- Stacked Segment Bar -->
+              <div id="costStackedBar" class="cost-breakdown-bar"></div>
+
+              <!-- Color Legend Grid -->
+              <div id="costLegendGrid" class="cost-legend-grid"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact Us</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kisan Helpline</h4>
+          <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="about.html" data-i18n="footer_about">About</a>
+          <a href="contact.html" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profit-calculator.js"></script>
+</body>
+</html>
