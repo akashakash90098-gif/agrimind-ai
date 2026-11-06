@@ -122,11 +122,9 @@
     <!-- Page Header -->
     <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
       <div class="container text-center">
-        <span class="section-eyebrow">FEEDBACK & INQUIRIES</span>
+        <span class="section-eyebrow" data-i18n="contact_eyebrow">FEEDBACK & INQUIRIES</span>
         <h1 class="section-title" data-i18n="nav_contact">Contact AgriMind</h1>
-        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
-          Have feedback on our prototype tools or suggestions for regional agricultural datasets? Reach out to our design team.
-        </p>
+        <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;" data-i18n="contact_desc">Have feedback on our prototype tools or suggestions for regional agricultural university collaboration? Send our agronomy team a message.</p>
       </div>
     </section>
 
@@ -139,75 +137,72 @@
             <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
           <div>
-            <strong>Frontend Demonstration Note:</strong>
-            This is a frontend demonstration build. Submitting this form displays accessible confirmation feedback, but does not transmit messages to an active email server. For urgent farm queries, please utilize the national Kisan Call Centre.
+            <strong data-i18n="contact_demo_note_title">Frontend Demonstration Note:</strong> <span data-i18n="contact_demo_note_desc">This is a frontend demonstration build. Submitting this form displays accessible confirmation feedback, but does not transmit messages to an active email server. For urgent farm queries, please utilize the national Kisan Call Centre.</span>
           </div>
         </div>
 
         <div class="card">
           <form id="contactForm" novalidate>
             <div class="form-group">
-              <label for="contactName" class="form-label">Full Name *</label>
-              <input type="text" id="contactName" class="form-control" placeholder="e.g. Ramesh Patel" required>
-              <div class="invalid-feedback">Please enter your name.</div>
+              <label for="contactName" class="form-label" data-i18n="contact_name_label">Full Name *</label>
+              <input type="text" id="contactName" class="form-control" placeholder="e.g. Ramesh Patel" data-i18n-placeholder="contact_name_placeholder" required>
+              <div class="invalid-feedback" data-i18n="contact_val_name">Please enter your name.</div>
             </div>
 
             <div class="form-group">
-              <label for="contactEmail" class="form-label">Email Address *</label>
-              <input type="email" id="contactEmail" class="form-control" placeholder="e.g. ramesh@example.com" required>
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+              <label for="contactEmail" class="form-label" data-i18n="contact_email_label">Email Address *</label>
+              <input type="email" id="contactEmail" class="form-control" placeholder="e.g. ramesh@example.com" data-i18n-placeholder="contact_email_placeholder" required>
+              <div class="invalid-feedback" data-i18n="contact_val_email">Please enter a valid email address.</div>
             </div>
 
             <div class="form-group">
-              <label for="contactSubject" class="form-label">Subject *</label>
+              <label for="contactSubject" class="form-label" data-i18n="contact_subject_label">Subject *</label>
               <select id="contactSubject" class="form-control" required>
-                <option value="">Select an inquiry category</option>
-                <option value="feedback">General Platform Feedback</option>
-                <option value="crop-doctor">AI Crop Doctor Suggestion</option>
-                <option value="mandi">Mandi Market Data Collaboration</option>
-                <option value="partnership">Academic / Extension Partnership</option>
+                <option value="" data-i18n="contact_subject_placeholder">Select an inquiry category</option>
+                <option value="feedback" data-i18n="contact_cat_feedback">General Platform Feedback</option>
+                <option value="crop-doctor" data-i18n="contact_cat_doctor">AI Crop Doctor Suggestion</option>
+                <option value="mandi" data-i18n="contact_cat_mandi">Mandi Market Data Collaboration</option>
+                <option value="partnership" data-i18n="contact_cat_academic">Academic / Extension Partnership</option>
               </select>
-              <div class="invalid-feedback">Please select a subject.</div>
+              <div class="invalid-feedback" data-i18n="contact_val_subject">Please select a subject.</div>
             </div>
 
             <div class="form-group">
-              <label for="contactMessage" class="form-label">Your Message *</label>
-              <textarea id="contactMessage" class="form-control" rows="5" placeholder="Share your suggestions, questions, or ideas..." required></textarea>
-              <div class="invalid-feedback">Please write your message.</div>
+              <label for="contactMessage" class="form-label" data-i18n="contact_message_label">Your Message *</label>
+              <textarea id="contactMessage" class="form-control" rows="5" placeholder="Share your suggestions, questions, or ideas..." data-i18n-placeholder="contact_message_placeholder" required></textarea>
+              <div class="invalid-feedback" data-i18n="contact_val_message">Please write your message.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" data-i18n="contact_submit_btn">
               Submit Demonstration Message
             </button>
           </form>
 
           <!-- Success Alert Container -->
           <div id="contactSuccessAlert" style="display: none; margin-top: 1.5rem; padding: 1.25rem; background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: var(--radius-md); color: #065F46;">
-            <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">✓ Thank You for Your Feedback!</strong>
-            <p style="font-size: 0.875rem; margin: 0; line-height: 1.5;">
-              Your submission has been captured in this prototype demonstration. In a live production deployment, this inquiry will route directly to our agricultural technology operations team.
-            </p>
+            <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;" data-i18n="contact_success_title">✓ Thank You for Your Feedback!</strong>
+            <p style="font-size: 0.875rem; margin: 0; line-height: 1.5;" data-i18n="contact_success_desc">Your submission has been captured in this prototype demonstration. In a live production deployment, this inquiry will route directly to our agricultural technology operations team.</p>
           </div>
         </div>
 
         <!-- Helpline Info Box -->
         <div class="card" style="margin-top: 2rem; background: #F8FAF7;">
-          <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.5rem;">
+          <h3 style="font-size: 1.15rem; color: var(--color-dark-green); margin-bottom: 0.5rem;" data-i18n="contact_helpline_heading">
             Official Government Helplines for Farmers
           </h3>
-          <p style="font-size: 0.875rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 1rem;">
+          <p style="font-size: 0.875rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 1rem;" data-i18n="contact_helpline_sub">
             For immediate field advice regarding pest infestations, fertilizer subsidies, or crop insurance claims, contact:
           </p>
           <div class="grid grid-2" style="gap: 1rem;">
             <div style="background: #FFFFFF; padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">
-              <div style="font-size: 0.8rem; color: var(--color-muted-text);">Kisan Call Centre (Nationwide)</div>
+              <div style="font-size: 0.8rem; color: var(--color-muted-text);" data-i18n="contact_kisan_cc_title">Kisan Call Centre (Nationwide)</div>
               <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-dark-green);">📞 1800-180-1551</div>
-              <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 0.25rem;">Toll-free • 6 AM to 10 PM daily</div>
+              <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 0.25rem;" data-i18n="contact_kisan_cc_time">Toll-free • 6 AM to 10 PM daily</div>
             </div>
             <div style="background: #FFFFFF; padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle);">
-              <div style="font-size: 0.8rem; color: var(--color-muted-text);">PM-Kisan Scheme Helpline</div>
+              <div style="font-size: 0.8rem; color: var(--color-muted-text);" data-i18n="contact_pm_kisan_title">PM-Kisan Scheme Helpline</div>
               <div style="font-size: 1.25rem; font-weight: 700; color: var(--color-dark-green);">📞 155261 / 011-24300606</div>
-              <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 0.25rem;">Direct benefit transfer queries</div>
+              <div style="font-size: 0.75rem; color: var(--color-muted-text); margin-top: 0.25rem;" data-i18n="contact_pm_kisan_desc">Direct benefit transfer queries</div>
             </div>
           </div>
         </div>
@@ -242,7 +237,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4 data-i18n="footer_resources">Resources</h4>
           <div class="footer-links">
             <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
             <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
@@ -252,9 +247,9 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Kisan Helpline</h4>
+          <h4 data-i18n="footer_kisan_helpline">Kisan Helpline</h4>
           <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
-          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);" data-i18n="footer_helpline_desc">Toll-free agricultural support across Indian states.</p>
         </div>
       </div>
       <div class="footer-bottom">

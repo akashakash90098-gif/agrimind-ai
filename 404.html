@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plot Not Found (404) — AgriMind AI</title>
+  <title data-i18n="404_page_title">Plot Not Found (404) — AgriMind AI</title>
   <meta name="theme-color" content="#10251D">
 
   <link rel="stylesheet" href="css/style.css">
@@ -11,20 +11,37 @@
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: var(--color-deep-forest); color: var(--color-pure-white);">
+<body data-i18n-page-title="404_page_title" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; background-color: var(--color-deep-forest); color: var(--color-pure-white);">
 
   <!-- Minimal Header -->
   <header style="padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
       <a href="index.html" class="brand-logo">
         <div class="brand-logo-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         </div>
         <span>AgriMind <span class="highlight">AI</span></span>
       </a>
-      <a href="index.html" class="btn btn-sm btn-outline-dark" style="color: var(--color-pure-white); border-color: rgba(255,255,255,0.3);">
-        Return Home
-      </a>
+
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-selector-btn" aria-label="Select Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="current-lang-label">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="lang-dropdown">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span></button>
+          </div>
+        </div>
+
+        <a href="index.html" class="btn btn-sm btn-outline-dark" style="color: var(--color-pure-white); border-color: rgba(255,255,255,0.3);" data-i18n="404_btn_home">
+          Return Home
+        </a>
+      </div>
     </div>
   </header>
 
@@ -35,30 +52,33 @@
         404
       </div>
 
-      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--color-pure-white); margin-bottom: 1rem;">
+      <div class="section-eyebrow" style="color: var(--color-lime); margin-bottom: 0.5rem;" data-i18n="404_eyebrow">PAGE NOT FOUND</div>
+
+      <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--color-pure-white); margin-bottom: 1rem;" data-i18n="404_title">
         This Field Looks Uncultivated
       </h1>
 
-      <p style="font-size: 1.1rem; color: var(--color-muted-light); max-width: 540px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
-        The agricultural page or resource you are looking for might have been moved, renamed, or is currently fallow.
+      <p style="font-size: 1.1rem; color: var(--color-muted-light); max-width: 540px; margin: 0 auto 2.5rem auto; line-height: 1.6;" data-i18n="404_subtitle">
+        The agricultural page or resource you are looking for might have been harvested, replanted, or relocated to another furrow.
       </p>
 
       <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-primary btn-lg">Back to Homepage</a>
-        <a href="crop-doctor.html" class="btn btn-secondary btn-lg">Explore AI Crop Doctor</a>
-        <a href="farming-calendar.html" class="btn btn-secondary btn-lg">Farming Calendar</a>
-        <a href="irrigation-reminders.html" class="btn btn-secondary btn-lg">Irrigation Reminders</a>
+        <a href="index.html" class="btn btn-primary btn-lg" data-i18n="404_btn_home">Back to Homepage</a>
+        <a href="crop-doctor.html" class="btn btn-secondary btn-lg" data-i18n="404_btn_doctor">Explore AI Crop Doctor</a>
+        <a href="farming-calendar.html" class="btn btn-secondary btn-lg" data-i18n="404_btn_calendar">Farming Calendar</a>
+        <a href="irrigation-reminders.html" class="btn btn-secondary btn-lg" data-i18n="404_btn_reminders">Irrigation Reminders</a>
       </div>
     </div>
   </main>
 
   <!-- Minimal Footer -->
   <footer style="padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.85rem; color: var(--color-muted-light);">
-    <div class="container">
-      © 2026 AgriMind AI — Intelligent Farming Platform. Grow Smarter. Farm Better.
+    <div class="container" data-i18n="footer_rights">
+      © 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.
     </div>
   </footer>
 
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
-

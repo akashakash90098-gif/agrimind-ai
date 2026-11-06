@@ -256,5 +256,14 @@ function initProfitCalculator() {
 
   // Initial Calculation
   calculateFarmProfit();
+
+  // Live re-render on language change
+  if (typeof window !== 'undefined') {
+    window.addEventListener('agrimind:languageChange', () => {
+      if (typeof calculateFarmProfit === 'function') {
+        calculateFarmProfit();
+      }
+    });
+  }
 }
 

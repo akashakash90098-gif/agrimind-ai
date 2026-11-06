@@ -284,27 +284,37 @@ function initKnowledgeHub() {
       return;
     }
 
-    grid.innerHTML = list.map(art => `
+    const lang = (typeof window !== 'undefined' && window.agrimindI18n) ? window.agrimindI18n.getLanguage() : 'en';
+    const transList = (window.agrimindKnowledgeArticlesDatabase && window.agrimindKnowledgeArticlesDatabase[lang]) ? window.agrimindKnowledgeArticlesDatabase[lang] : [];
+    grid.innerHTML = list.map(art => {
+      const trans = transList.find(t => t.id === art.id) || art;
+      const title = trans.title || art.title;
+      const category = trans.category || art.category;
+      const summary = trans.summary || art.summary;
+      const readTime = trans.readTime || art.readTime;
+      const publishedDate = trans.publishedDate || art.publishedDate;
+      return `
       <article class="article-card reveal active">
         <img class="article-card-img" src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null; this.src='assets/images/article-soil-salinity.jpg';">
         <div class="article-card-body">
           <div class="article-card-meta">
-            <span class="badge badge-leaf">${art.category}</span>
-            <span>⏱ ${art.readTime}</span>
+            <span class="badge badge-leaf">${category}</span>
+            <span>⏱ ${readTime}</span>
           </div>
           <h3 class="article-card-title">
-            <a href="article.html?id=${art.id}">${art.title}</a>
+            <a href="article.html?id=${art.id}">${title}</a>
           </h3>
-          <p class="article-card-summary">${art.summary}</p>
+          <p class="article-card-summary">${summary}</p>
           <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid #EEF3EB; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--color-muted-text);">${art.publishedDate}</span>
+            <span style="font-size: 0.775rem; color: var(--color-muted-text);">${publishedDate}</span>
             <a href="article.html?id=${art.id}" class="btn btn-sm btn-outline-dark" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
               Read Guide →
             </a>
           </div>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
   }
 
   // Category chip listeners
@@ -404,3 +414,13 @@ function initArticleDetail() {
   }
 }
 
+
+
+// Re-render Knowledge Hub on language change
+if (typeof window !== 'undefined') {
+  window.addEventListener('agrimind:languageChange', () => {
+    const searchInput = document.getElementById('hubSearchInput');
+    if (searchInput) searchInput.dispatchEvent(new Event('input'));
+    if (typeof initArticleDetail === 'function') initArticleDetail();
+  });
+}

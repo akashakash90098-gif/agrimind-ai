@@ -153,16 +153,22 @@ function initMandiMarket() {
       return;
     }
 
-    tableBody.innerHTML = data.map(item => `
+    const lang = (typeof window !== 'undefined' && window.agrimindI18n) ? window.agrimindI18n.getLanguage() : 'en';
+    const trans = (window.agrimindMandiCommodities && window.agrimindMandiCommodities[lang]) ? window.agrimindMandiCommodities[lang] : {};
+    tableBody.innerHTML = data.map(item => {
+      const cropName = trans[item.crop] || item.crop;
+      const stateName = trans[item.state] || item.state;
+      const arrivalsText = item.arrivals.replace('Qtl', trans['arrivals_suffix'] || 'Qtl');
+      return `
       <tr>
-        <td style="font-weight: 700; color: var(--color-dark-green);">${item.crop}</td>
+        <td style="font-weight: 700; color: var(--color-dark-green);">${cropName}</td>
         <td>
           <div style="font-weight: 600;">${item.market}</div>
-          <div style="font-size: 0.775rem; color: var(--color-muted-text);">${item.state}</div>
+          <div style="font-size: 0.775rem; color: var(--color-muted-text);">${stateName}</div>
         </td>
         <td><span class="price-pill">₹${item.modalPrice.toLocaleString('en-IN')}</span> / Qtl</td>
         <td style="font-size: 0.825rem; color: var(--color-text-body);">₹${item.minPrice} – ₹${item.maxPrice}</td>
-        <td>${item.arrivals}</td>
+        <td>${arrivalsText}</td>
         <td>
           <span class="badge ${item.trend.startsWith('+') ? 'badge-leaf' : 'badge-danger'}">
             ${item.trend}
@@ -174,7 +180,8 @@ function initMandiMarket() {
           </button>
         </td>
       </tr>
-    `).join('');
+    `;
+    }).join('');
 
     // Attach row calculate buttons
     document.querySelectorAll('.select-mandi-crop').forEach(btn => {
@@ -268,4 +275,13 @@ function initMandiMarket() {
   filterAndSortData();
   renderTrendChart('paddy');
   calculateRevenue();
+}
+
+
+// Re-render mandi table on language change
+if (typeof window !== 'undefined') {
+  window.addEventListener('agrimind:languageChange', () => {
+    const searchInput = document.getElementById('mandiSearchInput');
+    if (searchInput) searchInput.dispatchEvent(new Event('input'));
+  });
 }

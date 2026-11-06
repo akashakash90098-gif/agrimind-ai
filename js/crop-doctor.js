@@ -365,7 +365,9 @@ function initCropDoctor() {
 
   function renderDiagnosticReport() {
     const selectedCrop = (cropSelect ? cropSelect.value : 'unknown') || 'unknown';
-    const data = cropDiseaseDatabase[selectedCrop] || cropDiseaseDatabase.unknown;
+    const lang = (typeof window !== 'undefined' && window.agrimindI18n) ? window.agrimindI18n.getLanguage() : 'en';
+    const db = (window.agrimindCropDiseaseDatabase && window.agrimindCropDiseaseDatabase[lang]) ? window.agrimindCropDiseaseDatabase[lang] : cropDiseaseDatabase;
+    const data = db[selectedCrop] || cropDiseaseDatabase[selectedCrop] || cropDiseaseDatabase.unknown;
 
     // Populate Report Fields
     const reportCropName = document.getElementById('reportCropName');
@@ -447,3 +449,41 @@ function initCropDoctor() {
   }
 }
 
+
+
+// Re-render diagnosis report on language change
+if (typeof window !== 'undefined') {
+  window.addEventListener('agrimind:languageChange', () => {
+    const reportSection = document.getElementById('doctorReport');
+    if (reportSection && reportSection.style.display !== 'none' && reportSection.classList.contains('active')) {
+      const cropSelect = document.getElementById('doctorCropSelect');
+      const selectedCrop = (cropSelect ? cropSelect.value : 'unknown') || 'unknown';
+      const lang = window.agrimindI18n.getLanguage();
+      const db = (window.agrimindCropDiseaseDatabase && window.agrimindCropDiseaseDatabase[lang]) ? window.agrimindCropDiseaseDatabase[lang] : cropDiseaseDatabase;
+      const data = db[selectedCrop] || cropDiseaseDatabase[selectedCrop] || cropDiseaseDatabase.unknown;
+      
+      const reportCondition = document.getElementById('reportCondition');
+      const reportSeverity = document.getElementById('reportSeverity');
+      const symptomsList = document.getElementById('reportSymptomsList');
+      const preventionList = document.getElementById('reportPreventionList');
+      const nextStepsList = document.getElementById('reportNextStepsList');
+      const consultText = document.getElementById('reportConsultText');
+
+      if (reportCondition) reportCondition.textContent = data.condition;
+      if (reportSeverity) {
+        reportSeverity.textContent = data.severity;
+        reportSeverity.className = 'badge ' + (data.severity.includes('High') || data.severity.includes('Critical') || data.severity.includes('తీవ్ర') || data.severity.includes('தீவிர') || data.severity.includes('सघन') ? 'badge-danger' : 'badge-warning');
+      }
+      if (symptomsList && data.symptoms) {
+        symptomsList.innerHTML = data.symptoms.map(s => '<li>' + s + '</li>').join('');
+      }
+      if (preventionList && data.prevention) {
+        preventionList.innerHTML = data.prevention.map(p => '<li>' + p + '</li>').join('');
+      }
+      if (nextStepsList && data.nextSteps) {
+        nextStepsList.innerHTML = data.nextSteps.map(n => '<li>' + n + '</li>').join('');
+      }
+      if (consultText) consultText.textContent = data.consultation;
+    }
+  });
+}

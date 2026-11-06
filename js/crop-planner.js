@@ -278,18 +278,18 @@ function initCropPlanner() {
           <h3 style="font-size: 1.3rem; margin-bottom: 0.35rem; color: var(--color-text-dark);">${crop.name}</h3>
           
           <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.825rem; color: var(--color-muted-text); flex-wrap: wrap;">
-            <span>⏱ ${crop.duration}</span>
+            <span>⏱ ${displayDuration}</span>
             <span>•</span>
-            <span>🌾 Exp: ${crop.expectedYield}</span>
+            <span>🌾 ${displayYield}</span>
           </div>
 
           <div style="background: #F6F8F5; border-radius: var(--radius-md); padding: 1rem; margin-bottom: 1rem;">
             <p style="font-size: 0.875rem; font-weight: 600; color: var(--color-dark-green); margin-bottom: 0.25rem;">Why this crop is suitable:</p>
-            <p style="font-size: 0.85rem; color: var(--color-text-body); margin: 0;">${crop.whySuitable}</p>
+            <p style="font-size: 0.85rem; color: var(--color-text-body); margin: 0;">${displayWhy}</p>
           </div>
 
           <div style="font-size: 0.825rem; color: var(--color-muted-text); margin-bottom: 1rem; border-left: 2px solid var(--color-fresh-leaf); padding-left: 0.75rem;">
-            <strong>Key factors to verify:</strong> ${crop.verificationFactors}
+            <strong>Key factors to verify:</strong> ${displayFactors}
           </div>
 
           <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center;">
@@ -351,3 +351,19 @@ function initCropPlanner() {
   }
 }
 
+
+
+// Re-render recommendations on language change
+if (typeof window !== 'undefined') {
+  window.addEventListener('agrimind:languageChange', () => {
+    if (typeof currentRecommendations !== 'undefined' && currentRecommendations && currentRecommendations.length > 0) {
+      const area = parseFloat(document.getElementById('plannerLandArea')?.value) || 1;
+      const unit = document.getElementById('plannerLandUnit')?.value || 'Acres';
+      const resultsContainer = document.getElementById('plannerResults');
+      if (resultsContainer && resultsContainer.style.display !== 'none') {
+        const generateBtn = document.getElementById('btnGetRecommendations');
+        if (generateBtn) generateBtn.click();
+      }
+    }
+  });
+}

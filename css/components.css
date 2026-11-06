@@ -344,7 +344,8 @@
   transition: all var(--transition-fast);
   cursor: pointer;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
 }
 
 .btn-primary {

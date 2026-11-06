@@ -1066,7 +1066,9 @@
 
   function formatHumanDate(d) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    const monthKeys = ['month_jan', 'month_feb', 'month_mar', 'month_apr', 'month_may', 'month_jun', 'month_jul', 'month_aug', 'month_sep', 'month_oct', 'month_nov', 'month_dec'];
+    const m = (typeof window.t === 'function') ? window.t(monthKeys[d.getMonth()], months[d.getMonth()]) : months[d.getMonth()];
+    return `${d.getDate()} ${m} ${d.getFullYear()}`;
   }
 
   function formatTime12h(timeStr) {
@@ -1089,4 +1091,14 @@
     if (el) el.style.display = show ? 'block' : 'none';
   }
 
+  // Live re-render reminders on language change
+  if (typeof window !== 'undefined') {
+    window.addEventListener('agrimind:languageChange', () => {
+      if (typeof renderDashboard === 'function') {
+        renderDashboard();
+      }
+    });
+  }
+
 })();
+

@@ -302,5 +302,14 @@ function initSoilIntelligence() {
 
   // Initial render
   updateDashboard();
+
+  // Live re-render on language change
+  if (typeof window !== 'undefined') {
+    window.addEventListener('agrimind:languageChange', () => {
+      if (typeof updateDashboard === 'function') {
+        updateDashboard();
+      }
+    });
+  }
 }
 

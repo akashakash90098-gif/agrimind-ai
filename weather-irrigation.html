@@ -155,11 +155,11 @@
             </div>
             <select id="weatherRegionSelect" class="form-control" style="max-width: 320px;">
               <option value="ludhiana" selected>Ludhiana — Punjab (North Plains)</option>
-              <option value="guntur">Guntur — Andhra Pradesh (Coastal Plains)</option>
-              <option value="nashik">Nashik — Maharashtra (Western Ghats)</option>
+              <option value="guntur" data-i18n="weather_city_guntur">Guntur — Andhra Pradesh (Coastal Plains)</option>
+              <option value="nashik" data-i18n="weather_city_nashik">Nashik — Maharashtra (Western Ghats)</option>
               <option value="coimbatore">Coimbatore — Tamil Nadu (Kongu Zone)</option>
-              <option value="varanasi">Varanasi — Uttar Pradesh (Eastern Plains)</option>
-              <option value="indore">Indore — Madhya Pradesh (Malwa Plateau)</option>
+              <option value="varanasi" data-i18n="weather_city_varanasi">Varanasi — Uttar Pradesh (Eastern Plains)</option>
+              <option value="indore" data-i18n="weather_city_indore">Indore — Madhya Pradesh (Malwa Plateau)</option>
             </select>
           </div>
         </div>
@@ -363,7 +363,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4 data-i18n="footer_resources">Resources</h4>
           <div class="footer-links">
             <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Mandi Market Insights</a>
             <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
@@ -373,9 +373,9 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Kisan Helpline</h4>
+          <h4 data-i18n="footer_kisan_helpline">Kisan Helpline</h4>
           <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-lime); margin-bottom: 0.5rem;">📞 1800-180-1551</div>
-          <p style="font-size: 0.8rem; color: var(--color-muted-light);">Toll-free agricultural support across Indian states.</p>
+          <p style="font-size: 0.8rem; color: var(--color-muted-light);" data-i18n="footer_helpline_desc">Toll-free agricultural support across Indian states.</p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -395,6 +395,7 @@
 
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/multilingual-data.js"></script>
   <script src="js/weather-irrigation.js"></script>
 </body>
 </html>

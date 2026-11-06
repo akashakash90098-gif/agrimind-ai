@@ -197,7 +197,25 @@ function initWeatherAndIrrigation() {
   }
 
   function loadWeatherData(key) {
-    const data = regionalWeatherDatabase[key] || regionalWeatherDatabase.ludhiana;
+    const lang = (typeof window !== 'undefined' && window.agrimindI18n) ? window.agrimindI18n.getLanguage() : 'en';
+    const baseData = regionalWeatherDatabase[key] || regionalWeatherDatabase.ludhiana;
+    const transDb = (window.agrimindRegionalWeatherDatabase && window.agrimindRegionalWeatherDatabase[lang]) ? window.agrimindRegionalWeatherDatabase[lang] : {};
+    const trans = transDb[key] || {};
+    const data = {
+      ...baseData,
+      city: trans.city || baseData.city,
+      state: trans.state || baseData.state,
+      current: {
+        ...baseData.current,
+        condition: trans.current?.condition || baseData.current.condition
+      },
+      forecast: baseData.forecast.map((fc, idx) => ({
+        ...fc,
+        day: trans.forecast?.[idx]?.day || fc.day,
+        condition: trans.forecast?.[idx]?.condition || fc.condition
+      })),
+      farmingAdvice: trans.farmingAdvice || baseData.farmingAdvice
+    };
 
     if (cityName) cityName.textContent = data.city;
     if (stateBadge) stateBadge.textContent = data.state;
@@ -315,3 +333,16 @@ function initWeatherAndIrrigation() {
   loadWeatherData('ludhiana');
 }
 
+
+
+// Re-render weather on language change
+if (typeof window !== 'undefined') {
+  window.addEventListener('agrimind:languageChange', () => {
+    const regionSelect = document.getElementById('weatherRegionSelect');
+    if (regionSelect) {
+      const loadFn = window.__loadWeatherData || (typeof loadWeatherData === 'function' ? loadWeatherData : null);
+      if (loadFn) loadFn(regionSelect.value);
+      else regionSelect.dispatchEvent(new Event('change'));
+    }
+  });
+}

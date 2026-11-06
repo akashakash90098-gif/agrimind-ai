@@ -514,9 +514,14 @@
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
     ];
+    const monthKeys = [
+      'month_jan', 'month_feb', 'month_mar', 'month_apr', 'month_may', 'month_jun',
+      'month_jul', 'month_aug', 'month_sep', 'month_oct', 'month_nov', 'month_dec'
+    ];
+    const monthName = (typeof window.t === 'function') ? window.t(monthKeys[month], monthNames[month]) : monthNames[month];
 
     if (monthTitle) {
-      monthTitle.textContent = `${monthNames[month]} ${year}`;
+      monthTitle.textContent = `${monthName} ${year}`;
     }
 
     calendarDaysGrid.innerHTML = '';
@@ -1073,8 +1078,9 @@
 
   function formatHumanDate(date, compact = false) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthKeys = ['month_jan', 'month_feb', 'month_mar', 'month_apr', 'month_may', 'month_jun', 'month_jul', 'month_aug', 'month_sep', 'month_oct', 'month_nov', 'month_dec'];
     const d = date.getDate();
-    const m = months[date.getMonth()];
+    const m = (typeof window.t === 'function') ? window.t(monthKeys[date.getMonth()], months[date.getMonth()]) : months[date.getMonth()];
     const y = date.getFullYear();
     return compact ? `${d} ${m}` : `${d} ${m} ${y}`;
   }
@@ -1084,4 +1090,14 @@
     if (el) el.style.display = show ? 'block' : 'none';
   }
 
+  // Live re-render calendar on language change
+  if (typeof window !== 'undefined') {
+    window.addEventListener('agrimind:languageChange', () => {
+      if (typeof renderDashboard === 'function') {
+        renderDashboard();
+      }
+    });
+  }
+
 })();
+
