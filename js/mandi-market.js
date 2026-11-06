@@ -22,6 +22,64 @@ const sampleMandiDatabase = [
   { crop: "Turmeric (Haldi)", state: "Tamil Nadu", market: "Erode Mandi", modalPrice: 14200, minPrice: 13100, maxPrice: 15400, arrivals: "610 Qtl", date: "Today", trend: "+3.0%" }
 ];
 
+// Sample 30-Day Historical Trends (5-day intervals)
+const mandiHistoryTrends = {
+  paddy: [
+    { label: "Day 1", price: 3950 },
+    { label: "Day 5", price: 4020 },
+    { label: "Day 10", price: 4100 },
+    { label: "Day 15", price: 4050 },
+    { label: "Day 20", price: 4180 },
+    { label: "Day 25", price: 4220 },
+    { label: "Day 30", price: 4250 }
+  ],
+  wheat: [
+    { label: "Day 1", price: 2420 },
+    { label: "Day 5", price: 2450 },
+    { label: "Day 10", price: 2490 },
+    { label: "Day 15", price: 2520 },
+    { label: "Day 20", price: 2500 },
+    { label: "Day 25", price: 2530 },
+    { label: "Day 30", price: 2550 }
+  ],
+  cotton: [
+    { label: "Day 1", price: 6850 },
+    { label: "Day 5", price: 6920 },
+    { label: "Day 10", price: 7000 },
+    { label: "Day 15", price: 6950 },
+    { label: "Day 20", price: 7100 },
+    { label: "Day 25", price: 7150 },
+    { label: "Day 30", price: 7200 }
+  ],
+  soybean: [
+    { label: "Day 1", price: 4200 },
+    { label: "Day 5", price: 4280 },
+    { label: "Day 10", price: 4350 },
+    { label: "Day 15", price: 4310 },
+    { label: "Day 20", price: 4390 },
+    { label: "Day 25", price: 4400 },
+    { label: "Day 30", price: 4420 }
+  ],
+  mustard: [
+    { label: "Day 1", price: 5350 },
+    { label: "Day 5", price: 5420 },
+    { label: "Day 10", price: 5500 },
+    { label: "Day 15", price: 5480 },
+    { label: "Day 20", price: 5560 },
+    { label: "Day 25", price: 5610 },
+    { label: "Day 30", price: 5650 }
+  ],
+  tomato: [
+    { label: "Day 1", price: 2200 },
+    { label: "Day 5", price: 2050 },
+    { label: "Day 10", price: 1900 },
+    { label: "Day 15", price: 1820 },
+    { label: "Day 20", price: 1750 },
+    { label: "Day 25", price: 1680 },
+    { label: "Day 30", price: 1650 }
+  ]
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initMandiMarket();
 });
@@ -38,16 +96,17 @@ function initMandiMarket() {
   const statLow = document.getElementById('mandiStatLow');
   const statTrend = document.getElementById('mandiStatTrend');
 
+  // Trend Chart Elements
+  const trendSelect = document.getElementById('trendCropSelect');
+  const chartContainer = document.getElementById('mandiTrendChart');
+
   // Revenue Estimator Elements
-  const calcCropSelect = document.getElementById('calcCropSelect');
   const calcQty = document.getElementById('calcQty');
   const calcPrice = document.getElementById('calcPrice');
   const calcTransport = document.getElementById('calcTransport');
   const calcGrossRev = document.getElementById('calcGrossRev');
   const calcNetRev = document.getElementById('calcNetRev');
   const calcBtn = document.getElementById('calcRevenueBtn');
-
-  let currentData = [...sampleMandiDatabase];
 
   function filterAndSortData() {
     const query = (searchInput ? searchInput.value.toLowerCase().trim() : '');
@@ -76,7 +135,6 @@ function initMandiMarket() {
       return 0;
     });
 
-    currentData = filtered;
     renderTable(filtered);
     updateStats(filtered);
   }
@@ -151,6 +209,36 @@ function initMandiMarket() {
     if (statTrend) statTrend.textContent = "+1.8% Avg";
   }
 
+  // 30-Day Trend Chart Renderer
+  function renderTrendChart(cropKey) {
+    if (!chartContainer) return;
+    const series = mandiHistoryTrends[cropKey] || mandiHistoryTrends.paddy;
+    const maxPrice = Math.max(...series.map(s => s.price));
+    const minPrice = Math.min(...series.map(s => s.price));
+
+    chartContainer.innerHTML = series.map((pt, idx) => {
+      // Calculate height percentage relative to max
+      const heightPct = Math.max(25, Math.round((pt.price / (maxPrice * 1.05)) * 100));
+      const isPositive = idx === 0 || pt.price >= series[idx - 1].price;
+
+      return `
+        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; height: 100%;">
+          <div style="font-size: 0.725rem; font-weight: 700; color: var(--color-dark-green);">₹${pt.price.toLocaleString('en-IN')}</div>
+          <div style="width: 100%; max-width: 42px; height: 160px; background: #EEF3EB; border-radius: var(--radius-sm); position: relative; display: flex; align-items: flex-end;">
+            <div style="width: 100%; height: ${heightPct}%; background: ${isPositive ? 'linear-gradient(to top, var(--color-fresh-leaf), var(--color-lime))' : 'linear-gradient(to top, #F87171, #FCA5A5)'}; border-radius: var(--radius-sm); transition: height 0.5s ease;"></div>
+          </div>
+          <div style="font-size: 0.725rem; color: var(--color-muted-text);">${pt.label}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  if (trendSelect) {
+    trendSelect.addEventListener('change', () => {
+      renderTrendChart(trendSelect.value);
+    });
+  }
+
   // Potential Revenue Calculator
   function calculateRevenue() {
     const qty = parseFloat(calcQty ? calcQty.value : 0) || 0;
@@ -165,10 +253,7 @@ function initMandiMarket() {
     if (calcNetRev) calcNetRev.textContent = `₹${Math.round(net).toLocaleString('en-IN')}`;
   }
 
-  if (calcBtn) {
-    calcBtn.addEventListener('click', calculateRevenue);
-  }
-
+  if (calcBtn) calcBtn.addEventListener('click', calculateRevenue);
   if (calcQty) calcQty.addEventListener('input', calculateRevenue);
   if (calcPrice) calcPrice.addEventListener('input', calculateRevenue);
   if (calcTransport) calcTransport.addEventListener('input', calculateRevenue);
@@ -181,6 +266,6 @@ function initMandiMarket() {
 
   // Initial render
   filterAndSortData();
+  renderTrendChart('paddy');
   calculateRevenue();
 }
-

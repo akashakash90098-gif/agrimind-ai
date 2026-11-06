@@ -93,7 +93,7 @@ const articlesDatabase = [
     category: "Soil Health",
     categorySlug: "soil-health",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1592417817098-8f3d6910a394?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
     summary: "Identify electrical conductivity (EC) and exchangeable sodium percentage (ESP) issues and reclaim degraded plots using gypsum and green manuring.",
     featured: false,
     publishedDate: "October 2026",
@@ -286,7 +286,7 @@ function initKnowledgeHub() {
 
     grid.innerHTML = list.map(art => `
       <article class="article-card reveal active">
-        <img class="article-card-img" src="${art.image}" alt="${art.title}" loading="lazy">
+        <img class="article-card-img" src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80';">
         <div class="article-card-body">
           <div class="article-card-meta">
             <span class="badge badge-leaf">${art.category}</span>
@@ -388,7 +388,7 @@ function initArticleDetail() {
     const related = articlesDatabase.filter(a => a.id !== article.id).slice(0, 3);
     relatedGrid.innerHTML = related.map(rel => `
       <article class="article-card">
-        <img class="article-card-img" src="${rel.image}" alt="${rel.title}" loading="lazy">
+        <img class="article-card-img" src="${rel.image}" alt="${rel.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80';">
         <div class="article-card-body">
           <div class="article-card-meta">
             <span class="badge badge-leaf">${rel.category}</span>
