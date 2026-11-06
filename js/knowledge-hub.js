@@ -10,7 +10,7 @@ const articlesDatabase = [
     category: "Irrigation",
     categorySlug: "irrigation",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-drip-irrigation.jpg",
     summary: "A practical guide to drip lateral design, sub-main filtration, and fertigation scheduling that saves groundwater while boosting crop uniform weight.",
     featured: true,
     publishedDate: "November 2026",
@@ -56,7 +56,7 @@ const articlesDatabase = [
     category: "Crop Cultivation",
     categorySlug: "crop-cultivation",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1536657464919-892534f60d6e?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-rice-sri.jpg",
     summary: "Transform rice farming using 8-12 day young single seedlings, wide square spacing (25x25 cm), and alternate wetting and drying.",
     featured: false,
     publishedDate: "October 2026",
@@ -93,7 +93,7 @@ const articlesDatabase = [
     category: "Soil Health",
     categorySlug: "soil-health",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-soil-salinity.jpg",
     summary: "Identify electrical conductivity (EC) and exchangeable sodium percentage (ESP) issues and reclaim degraded plots using gypsum and green manuring.",
     featured: false,
     publishedDate: "October 2026",
@@ -128,7 +128,7 @@ const articlesDatabase = [
     category: "Pest Prevention",
     categorySlug: "pest-prevention",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-cotton-ipm.jpg",
     summary: "A calendar-based IPM framework combining pheromone traps, trichogramma parasitoids, and selective eco-friendly interventions.",
     featured: false,
     publishedDate: "September 2026",
@@ -164,7 +164,7 @@ const articlesDatabase = [
     category: "Organic Farming",
     categorySlug: "organic-farming",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-tomato-blight.jpg",
     summary: "A practical guide to navigating the NPOP transition period, preparing farm-made liquid bio-formulations, and earning organic premiums.",
     featured: false,
     publishedDate: "September 2026",
@@ -200,7 +200,7 @@ const articlesDatabase = [
     category: "Farm Business Basics",
     categorySlug: "farm-business-basics",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80",
+    image: "assets/images/article-mandi-trading.jpg",
     summary: "Master market arrival cycles, assaying quality parameters, and trading across state APMCs using the national electronic agriculture market.",
     featured: false,
     publishedDate: "August 2026",
@@ -286,7 +286,7 @@ function initKnowledgeHub() {
 
     grid.innerHTML = list.map(art => `
       <article class="article-card reveal active">
-        <img class="article-card-img" src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80';">
+        <img class="article-card-img" src="${art.image}" alt="${art.title}" loading="lazy" onerror="this.onerror=null; this.src='assets/images/article-soil-salinity.jpg';">
         <div class="article-card-body">
           <div class="article-card-meta">
             <span class="badge badge-leaf">${art.category}</span>
@@ -388,7 +388,7 @@ function initArticleDetail() {
     const related = articlesDatabase.filter(a => a.id !== article.id).slice(0, 3);
     relatedGrid.innerHTML = related.map(rel => `
       <article class="article-card">
-        <img class="article-card-img" src="${rel.image}" alt="${rel.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=800&q=80';">
+        <img class="article-card-img" src="${rel.image}" alt="${rel.title}" loading="lazy" onerror="this.onerror=null; this.src='assets/images/article-soil-salinity.jpg';">
         <div class="article-card-body">
           <div class="article-card-meta">
             <span class="badge badge-leaf">${rel.category}</span>
