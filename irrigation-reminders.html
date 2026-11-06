@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Irrigation Reminders — AgriMind AI | Precision Water Management</title>
+  <meta name="description" content="Plan watering sessions, schedule recurring irrigation tasks, prevent crop moisture stress, and receive timely browser & in-app reminder alerts.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="farming-calendar.html" class="dropdown-item">
+              <span class="dropdown-item-icon">📅</span>
+              <div><strong data-i18n="nav_calendar">Farming Calendar</strong></div>
+            </a>
+            <a href="irrigation-reminders.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">⏰</span>
+              <div><strong data-i18n="nav_reminders">Irrigation Reminders</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Regional Language Selector -->
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+            </svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="farming-calendar.html" class="mobile-sublink">📅 <span data-i18n="nav_calendar">Farming Calendar</span></a>
+        <a href="irrigation-reminders.html" class="mobile-sublink active">⏰ <span data-i18n="nav_reminders">Irrigation Reminders</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow">WATER CONSERVATION & SCHEDULING</span>
+        <h1 class="section-title" data-i18n="reminders_title">Smart Irrigation Reminders</h1>
+        <p class="section-subtitle" style="max-width: 750px; margin: 0 auto;" data-i18n="reminders_subtitle">
+          Schedule watering sessions, track irrigation history, and prevent crop moisture stress with automatic reminders.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Browser Notification Opt-In Banner -->
+        <div class="notification-banner-box" id="notificationBannerBox">
+          <div class="notification-banner-content">
+            <div class="notification-banner-icon">🔔</div>
+            <div>
+              <h3 style="font-size: 1.15rem; color: var(--color-pure-white); margin-bottom: 0.25rem;">
+                Browser & In-App Notifications
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--color-muted-light); margin: 0; line-height: 1.5;">
+                Stay alert for irrigation tasks without missing watering windows. Browser notifications trigger whenever AgriMind AI is open in your browser; in-app audio-visual alert toasts trigger automatically.
+              </p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;">
+            <span class="badge" id="notificationStatusBadge" style="background: rgba(255,255,255,0.15); color: var(--color-pure-white);">
+              Checking...
+            </span>
+            <button type="button" class="btn btn-primary btn-sm" id="btnRequestNotificationPermission">
+              <span data-i18n="reminders_notifications_btn">Enable Browser Notifications</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main 2-Column Responsive Layout -->
+        <div class="irrigation-layout-grid">
+
+          <!-- Left Column: Create / Edit Reminder Form -->
+          <div class="card" style="padding: 1.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.75rem;">
+              <h2 style="font-size: 1.25rem; color: var(--color-text-dark);" data-i18n="reminders_form_title">
+                Create Irrigation Reminder
+              </h2>
+              <span class="badge badge-leaf">Water Planner</span>
+            </div>
+
+            <form id="createReminderForm" novalidate>
+              <input type="hidden" id="editReminderId" value="">
+
+              <!-- Crop Name -->
+              <div style="margin-bottom: 1rem;">
+                <label for="reminderCropSelect" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="reminders_crop_name">Crop Name</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <select id="reminderCropSelect" class="form-control" required>
+                  <option value="" disabled selected>-- Select Crop --</option>
+                  <option value="Rice / Paddy">Rice / Paddy</option>
+                  <option value="Wheat">Wheat</option>
+                  <option value="Tomato">Tomato</option>
+                  <option value="Cotton">Cotton</option>
+                  <option value="Maize">Maize / Corn</option>
+                  <option value="Groundnut">Groundnut</option>
+                  <option value="Sugarcane">Sugarcane</option>
+                  <option value="Chilli">Chilli / Pepper</option>
+                  <option value="Onion">Onion / Garlic</option>
+                  <option value="Banana">Banana / Orchard</option>
+                  <option value="Vegetables">Mixed Vegetables</option>
+                  <option value="Other Crop">Other Crop</option>
+                </select>
+                <div class="form-error-msg" id="reminderCropError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please select a crop.</div>
+              </div>
+
+              <!-- Farm / Field Name -->
+              <div style="margin-bottom: 1rem;">
+                <label for="reminderFieldInput" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="reminders_field_name">Farm or Field Name</span>
+                </label>
+                <input type="text" id="reminderFieldInput" class="form-control" placeholder="e.g. North Plot Borewell #2, Greenhouse Bed A">
+              </div>
+
+              <!-- Date & Time Row -->
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label for="reminderDateInput" class="form-label" style="font-weight: 600;">
+                    <span data-i18n="reminders_date">Irrigation Date</span> <span style="color: var(--color-danger);">*</span>
+                  </label>
+                  <input type="date" id="reminderDateInput" class="form-control" required>
+                  <div class="form-error-msg" id="reminderDateError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please pick a valid date.</div>
+                </div>
+                <div>
+                  <label for="reminderTimeInput" class="form-label" style="font-weight: 600;">
+                    <span data-i18n="reminders_time">Irrigation Time</span> <span style="color: var(--color-danger);">*</span>
+                  </label>
+                  <input type="time" id="reminderTimeInput" class="form-control" required>
+                  <div class="form-error-msg" id="reminderTimeError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please pick a valid time.</div>
+                </div>
+              </div>
+
+              <!-- Repeat Frequency & Custom Interval -->
+              <div style="margin-bottom: 1rem;">
+                <label for="reminderFreqSelect" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="reminders_frequency">Repeat Frequency</span>
+                </label>
+                <select id="reminderFreqSelect" class="form-control">
+                  <option value="none" selected>No Repeat (One-time)</option>
+                  <option value="daily">Daily</option>
+                  <option value="every-2-days">Every 2 Days</option>
+                  <option value="every-3-days">Every 3 Days</option>
+                  <option value="every-5-days">Every 5 Days</option>
+                  <option value="weekly">Weekly (Every 7 Days)</option>
+                  <option value="custom">Custom Day Interval...</option>
+                </select>
+              </div>
+
+              <!-- Hidden Custom Days Input -->
+              <div id="customDaysWrapper" style="display: none; margin-bottom: 1rem;">
+                <label for="customDaysInput" class="form-label" style="font-weight: 600;">Every X Days:</label>
+                <input type="number" id="customDaysInput" class="form-control" placeholder="e.g. 4" min="1" max="60" value="4">
+              </div>
+
+              <!-- Irrigation Method & Run Duration -->
+              <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                  <label for="reminderMethodSelect" class="form-label" style="font-weight: 600;">
+                    <span data-i18n="reminders_method">Irrigation Method</span>
+                  </label>
+                  <select id="reminderMethodSelect" class="form-control">
+                    <option value="Drip" selected>Drip Irrigation</option>
+                    <option value="Sprinkler">Sprinkler</option>
+                    <option value="Flood">Flood Irrigation</option>
+                    <option value="Furrow / Manual">Furrow / Manual</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="reminderDurationInput" class="form-label" style="font-weight: 600;">Run Duration / Volume</label>
+                  <input type="text" id="reminderDurationInput" class="form-control" placeholder="e.g. 45 mins, 2 hours, 10 kL">
+                </div>
+              </div>
+
+              <!-- Optional Notes -->
+              <div style="margin-bottom: 1.25rem;">
+                <label for="reminderNotesInput" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="reminders_notes">Watering Notes</span>
+                </label>
+                <textarea id="reminderNotesInput" class="form-control" rows="2" placeholder="e.g. Add 19:19:19 water-soluble fertigation, check filter pressure..."></textarea>
+              </div>
+
+              <!-- Reminder Enabled Toggle -->
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border-subtle); margin-bottom: 1.5rem;">
+                <div>
+                  <div style="font-size: 0.9rem; font-weight: 600; color: var(--color-text-dark);">Reminder Alerts Enabled</div>
+                  <div style="font-size: 0.775rem; color: var(--color-muted-text);">Trigger notifications when due</div>
+                </div>
+                <label style="position: relative; display: inline-block; width: 44px; height: 24px; margin: 0; cursor: pointer;">
+                  <input type="checkbox" id="reminderEnabledToggle" checked style="opacity: 0; width: 0; height: 0;">
+                  <span id="toggleTrack" style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--color-fresh-leaf); transition: .3s; border-radius: 24px;"></span>
+                  <span id="toggleKnob" style="position: absolute; content: ''; height: 18px; width: 18px; left: 22px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%;"></span>
+                </label>
+              </div>
+
+              <!-- Submit Buttons -->
+              <div style="display: flex; gap: 0.75rem;">
+                <button type="button" id="btnCancelEditReminder" class="btn btn-outline-dark" style="display: none;">Cancel</button>
+                <button type="submit" id="btnSubmitReminder" class="btn btn-primary" style="flex: 1;">
+                  <span id="btnSubmitReminderText" data-i18n="reminders_btn_create">Create Reminder</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Reminder Dashboard -->
+          <div>
+            <!-- Summary Stats Pills -->
+            <div class="reminder-stat-pills">
+              <div class="reminder-stat-pill active" data-filter="all">
+                <div class="reminder-stat-val" id="statAllCount">0</div>
+                <div class="reminder-stat-name">All</div>
+              </div>
+              <div class="reminder-stat-pill" data-filter="due-today">
+                <div class="reminder-stat-val" id="statDueCount" style="color: var(--color-fresh-leaf);">0</div>
+                <div class="reminder-stat-name">Due Today</div>
+              </div>
+              <div class="reminder-stat-pill" data-filter="upcoming">
+                <div class="reminder-stat-val" id="statUpcomingCount" style="color: var(--color-info);">0</div>
+                <div class="reminder-stat-name">Upcoming</div>
+              </div>
+              <div class="reminder-stat-pill" data-filter="overdue">
+                <div class="reminder-stat-val" id="statOverdueCount" style="color: var(--color-danger);">0</div>
+                <div class="reminder-stat-name">Overdue</div>
+              </div>
+            </div>
+
+            <!-- Active Filter Banner & Search -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 0.5rem; flex-wrap: wrap;">
+              <div style="font-size: 0.9rem; font-weight: 700; color: var(--color-text-dark);" id="activeFilterHeading">
+                All Reminders
+              </div>
+              <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button type="button" id="btnFilterCompleted" class="btn btn-sm btn-outline-dark" title="View Completed History">
+                  ✓ History (<span id="statCompletedCount">0</span>)
+                </button>
+                <button type="button" id="btnLoadSampleReminders" class="btn btn-sm btn-outline-dark" title="Load sample reminders">
+                  + Load Demo
+                </button>
+              </div>
+            </div>
+
+            <!-- Cards Container -->
+            <div id="remindersCardsContainer" class="reminder-cards-list">
+              <!-- Dynamically populated by irrigation-reminders.js -->
+            </div>
+
+          </div>
+
+        </div> <!-- /.irrigation-layout-grid -->
+
+        <!-- =========================================================================
+             SECTION: SMART IRRIGATION GUIDANCE PANEL (Rule-Based Agronomic Calculator)
+             ========================================================================= -->
+        <div class="guidance-panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <span class="badge badge-leaf" style="margin-bottom: 0.35rem;">Science-Backed Agronomy</span>
+              <h2 style="font-size: 1.35rem; color: var(--color-text-dark); margin: 0;">Smart Irrigation Guidance & Crop Water Budget</h2>
+            </div>
+            <span style="font-size: 0.85rem; color: var(--color-muted-text);">ICAR & FAO-56 Irrigation Benchmark Guidelines</span>
+          </div>
+
+          <p style="font-size: 0.95rem; color: var(--color-text-body); line-height: 1.6; max-width: 850px;">
+            Estimate tailored irrigation frequencies based on soil water retention capacity, crop physiological stage, and recent rainfall to eliminate both drought stress and root rot.
+          </p>
+
+          <!-- Interactive Calculator Bar -->
+          <div class="grid grid-4" style="gap: 1rem; margin-top: 1.25rem;">
+            <div>
+              <label for="guideCropSelect" class="form-label" style="font-weight: 600;">Crop Type</label>
+              <select id="guideCropSelect" class="form-control">
+                <option value="rice" selected>Rice / Paddy</option>
+                <option value="wheat">Wheat</option>
+                <option value="tomato">Tomato</option>
+                <option value="cotton">Cotton</option>
+                <option value="maize">Maize / Corn</option>
+                <option value="groundnut">Groundnut</option>
+                <option value="sugarcane">Sugarcane</option>
+              </select>
+            </div>
+            <div>
+              <label for="guideSoilSelect" class="form-label" style="font-weight: 600;">Soil Texture</label>
+              <select id="guideSoilSelect" class="form-control">
+                <option value="sandy">Sandy Loam (Low holding)</option>
+                <option value="loamy" selected>Loamy (Optimal holding)</option>
+                <option value="clay">Clay Soil (High holding)</option>
+                <option value="black">Black Cotton (Deep Vertisol)</option>
+              </select>
+            </div>
+            <div>
+              <label for="guideStageSelect" class="form-label" style="font-weight: 600;">Crop Growth Stage</label>
+              <select id="guideStageSelect" class="form-control">
+                <option value="seedling">Seedling / Establishment</option>
+                <option value="vegetative">Vegetative Growth</option>
+                <option value="flowering" selected>Flowering / Fruit Setting (Critical)</option>
+                <option value="maturity">Grain / Fruit Maturity</option>
+              </select>
+            </div>
+            <div>
+              <label for="guideRainSelect" class="form-label" style="font-weight: 600;">Recent Rainfall</label>
+              <select id="guideRainSelect" class="form-control">
+                <option value="none" selected>No Rain (Dry spell)</option>
+                <option value="light">Light Shower (<10 mm)</option>
+                <option value="moderate">Moderate Rain (10-25 mm)</option>
+                <option value="heavy">Heavy Rain (>25 mm)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+            <button type="button" id="btnCalculateGuidance" class="btn btn-primary">
+              Calculate Irrigation Advice
+            </button>
+          </div>
+
+          <!-- Calculated Results Display -->
+          <div id="guidanceResultBox" class="guidance-result-box" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <span class="badge badge-lime" id="guideIntervalBadge" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">Every 3 - 4 Days</span>
+                <h3 id="guideResultHeadline" style="font-size: 1.25rem; color: var(--color-deep-forest); margin-top: 0.5rem; margin-bottom: 0.35rem;">
+                  Optimal Watering Schedule
+                </h3>
+                <p id="guideResultSummary" style="font-size: 0.9rem; color: var(--color-text-body); margin: 0; line-height: 1.6; max-width: 750px;">
+                  Summary advice will render here.
+                </p>
+              </div>
+              <button type="button" id="btnApplyGuidanceToForm" class="btn btn-secondary btn-sm">
+                + Pre-fill Reminder Form With This Schedule
+              </button>
+            </div>
+
+            <!-- Stress Symptoms Diagnosis Reference -->
+            <div class="stress-symptoms-grid">
+              <div class="stress-box">
+                <h4 style="font-size: 0.95rem; color: var(--color-danger); display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                  <span>🍂</span> Signs of Water Stress (Under-Watering)
+                </h4>
+                <ul id="stressUnderList" style="font-size: 0.825rem; color: var(--color-text-body); padding-left: 1.25rem; line-height: 1.5; margin: 0;">
+                  <li>Mid-day leaf wilting and inward rolling</li>
+                  <li>Premature flower drop or blossom end rot</li>
+                  <li>Dull grayish-green leaf canopy</li>
+                </ul>
+              </div>
+
+              <div class="stress-box">
+                <h4 style="font-size: 0.95rem; color: var(--color-warning); display: flex; align-items: center; gap: 0.35rem; margin-bottom: 0.35rem;">
+                  <span>💧</span> Risks of Waterlogging (Over-Watering)
+                </h4>
+                <ul id="stressOverList" style="font-size: 0.825rem; color: var(--color-text-body); padding-left: 1.25rem; line-height: 1.5; margin: 0;">
+                  <li>Lower leaf yellowing (root hypoxia & chlorosis)</li>
+                  <li>Pythium root rot and damping-off disease</li>
+                  <li>Nitrogen leaching beyond active root depth</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /.guidance-panel-card -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Complete Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Mission -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+
+        <!-- Col 2: AI Tools -->
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="farming-calendar.html" class="footer-link" data-i18n="nav_calendar">Farming Calendar</a>
+            <a href="irrigation-reminders.html" class="footer-link" data-i18n="nav_reminders">Irrigation Reminders</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Platform Integrity -->
+        <div class="footer-col">
+          <h4>Platform Notice</h4>
+          <p style="font-size: 0.85rem; color: var(--color-muted-light); line-height: 1.6;" data-i18n="footer_disclaimer_note">
+            AgriMind AI is an educational technology prototype. Agricultural decisions should always consider physical soil testing and certified local agronomic guidance.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="privacy.html" style="color: var(--color-muted-light); text-decoration: underline;" data-i18n="footer_privacy">Privacy</a>
+          <a href="contact.html" style="color: var(--color-muted-light); text-decoration: underline;" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/irrigation-reminders.js"></script>
+</body>
+</html>

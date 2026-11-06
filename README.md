@@ -55,15 +55,32 @@ Built with a cinematic, modern dark-forest and lime green design system, AgriMin
    - Quick one-click scenarios: 1 Acre Tomato, 5 Acres Wheat, 2 Acres Cotton.
    - Print estimate feature.
 
-7. **Farming Knowledge Hub & Article Pages (`knowledge-hub.html`, `article.html`):**
+7. **Smart Farming Calendar (`farming-calendar.html`):**
+   - Crop-specific agronomic roadmap generator based on standard Indian package of practices across 7 major crops (Rice, Wheat, Tomato, Cotton, Maize, Groundnut, Sugarcane).
+   - Calculates task dates relative to planting/sowing date covering 10 categories: Land preparation, Seed selection & sowing, Germination monitoring, Irrigation, Nutrient management, Weed control, Pest & disease scouting, Growth monitoring, Harvest preparation, and Harvesting.
+   - Monthly interactive calendar view with Sun–Sat grid, previous/next month navigation, "Today" indicator, and clickable task pills.
+   - List/Timeline view sorting tasks chronologically with day offsets (e.g. Day +18) and category badges.
+   - Task CRUD: Mark as completed/undo, add custom farming task, edit task details, quick postpone (+3 days, +7 days, or custom date), and delete task.
+   - Real-time progress bar showing percentage completion, upcoming tasks (14 days), and overdue task warning indicators.
+   - Full localStorage persistence (`agrimind_crop_plans`) and print styling (`window.print()`).
+
+8. **Smart Irrigation Reminders (`irrigation-reminders.html`):**
+   - Dedicated watering reminder scheduler with crop name, farm/field name, date, time, repeat frequencies (Daily, Every 2 days, Every 3 days, Every 5 days, Weekly, Custom), and irrigation method.
+   - Auto-recurrence logic: marking a recurring watering completed automatically schedules the next session date while archiving completed sessions into an irrigation history log.
+   - Priority dashboard tabs: Due Today, Upcoming, Overdue, and Completed History.
+   - Browser notifications with explicit user opt-in (`Notification.requestPermission()`) and automatic in-app audible/visual toast fallback alerts running every 25 seconds.
+   - Educational Smart Irrigation Guidance Panel: ICAR & FAO-56 rule-based calculator factoring crop type, soil texture, growth stage, and rainfall to estimate optimal watering intervals and symptoms of moisture stress vs overwatering.
+   - Full localStorage persistence (`agrimind_irrigation_reminders`).
+
+9. **Farming Knowledge Hub & Article Pages (`knowledge-hub.html`, `article.html`):**
    - Searchable, category-filtered knowledge library covering Irrigation, Crop Cultivation, Soil Health, Pest Prevention, Organic Farming, and Farm Business Basics.
    - Dynamic article detail reader rendering full rich guides with Table of Contents, takeaways callouts, and related article recommendations.
 
-8. **Regional Multilingual Engine (`js/translations.js`):**
+10. **Regional Multilingual Engine (`js/translations.js`):**
    - Instant 1-click language switching between **English**, **Telugu (తెలుగు)**, **Tamil (தமிழ்)**, and **Hindi (हिन्दी)**.
    - Stores language choice in `localStorage` so selection persists seamlessly across pages.
 
-9. **About, Contact & Privacy (`about.html`, `contact.html`, `privacy.html`, `404.html`):**
+11. **About, Contact & Privacy (`about.html`, `contact.html`, `privacy.html`, `404.html`):**
    - Ethical AI statements, official Kisan Call Centre helplines (1800-180-1551), accessible form validation, and transparent privacy policies.
 
 ---

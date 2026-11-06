@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Farming Calendar — AgriMind AI | Crop Activity & Sowing-to-Harvest Planner</title>
+  <meta name="description" content="Organize, track, and manage all your crop activities from seed sowing to harvest with automated, crop-specific agronomic schedules.">
+  <meta name="theme-color" content="#10251D">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="AgriMind AI Home">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+          </svg>
+        </div>
+        <span>AgriMind <span class="highlight">AI</span></span>
+      </a>
+
+      <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <div class="nav-dropdown">
+          <a href="#" class="nav-link active" id="toolsDropdownToggle" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_tools">AI Tools</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="toolsDropdownToggle">
+            <a href="crop-doctor.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🩺</span>
+              <div><strong data-i18n="nav_doctor">AI Crop Doctor</strong></div>
+            </a>
+            <a href="crop-planner.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌾</span>
+              <div><strong data-i18n="nav_planner">Crop Planner</strong></div>
+            </a>
+            <a href="farming-calendar.html" class="dropdown-item active">
+              <span class="dropdown-item-icon">📅</span>
+              <div><strong data-i18n="nav_calendar">Farming Calendar</strong></div>
+            </a>
+            <a href="irrigation-reminders.html" class="dropdown-item">
+              <span class="dropdown-item-icon">⏰</span>
+              <div><strong data-i18n="nav_reminders">Irrigation Reminders</strong></div>
+            </a>
+            <a href="soil-intelligence.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧪</span>
+              <div><strong data-i18n="nav_soil">Soil Intelligence</strong></div>
+            </a>
+            <a href="weather-irrigation.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🌦</span>
+              <div><strong data-i18n="nav_weather">Weather & Irrigation</strong></div>
+            </a>
+            <a href="profit-calculator.html" class="dropdown-item">
+              <span class="dropdown-item-icon">🧮</span>
+              <div><strong data-i18n="nav_profit">Profit Calculator</strong></div>
+            </a>
+          </div>
+        </div>
+
+        <a href="crop-planner.html" class="nav-link" data-i18n="nav_planner">Crop Planner</a>
+        <a href="mandi-market.html" class="nav-link" data-i18n="nav_market">Market Insights</a>
+        <a href="knowledge-hub.html" class="nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Regional Language Selector -->
+        <div class="lang-selector-wrapper">
+          <button type="button" class="lang-select-btn" aria-label="Select Language">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+            </svg>
+            <span id="currentLangLabel">English</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-dropdown-menu">
+            <button type="button" class="lang-option active" data-lang="en"><span>English</span><span>EN</span></button>
+            <button type="button" class="lang-option" data-lang="te"><span>తెలుగు (Telugu)</span><span>TE</span></button>
+            <button type="button" class="lang-option" data-lang="ta"><span>தமிழ் (Tamil)</span><span>TA</span></button>
+            <button type="button" class="lang-option" data-lang="hi"><span>हिन्दी (Hindi)</span><span>HI</span></button>
+          </div>
+        </div>
+
+        <a href="crop-doctor.html" class="btn btn-primary" data-i18n="btn_explore_tools">Explore AI Tools</a>
+        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
+    <a href="index.html" class="mobile-nav-link" data-i18n="nav_home">Home</a>
+    <div>
+      <div class="mobile-nav-link active" data-i18n="nav_tools">AI Tools</div>
+      <div class="mobile-sublinks">
+        <a href="crop-doctor.html" class="mobile-sublink">🩺 <span data-i18n="nav_doctor">AI Crop Doctor</span></a>
+        <a href="crop-planner.html" class="mobile-sublink">🌾 <span data-i18n="nav_planner">Crop Planner</span></a>
+        <a href="farming-calendar.html" class="mobile-sublink active">📅 <span data-i18n="nav_calendar">Farming Calendar</span></a>
+        <a href="irrigation-reminders.html" class="mobile-sublink">⏰ <span data-i18n="nav_reminders">Irrigation Reminders</span></a>
+        <a href="soil-intelligence.html" class="mobile-sublink">🧪 <span data-i18n="nav_soil">Soil Intelligence</span></a>
+        <a href="weather-irrigation.html" class="mobile-sublink">🌦 <span data-i18n="nav_weather">Weather & Irrigation</span></a>
+        <a href="profit-calculator.html" class="mobile-sublink">🧮 <span data-i18n="nav_profit">Profit Calculator</span></a>
+      </div>
+    </div>
+    <a href="mandi-market.html" class="mobile-nav-link" data-i18n="nav_market">Market Insights</a>
+    <a href="knowledge-hub.html" class="mobile-nav-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+    <a href="about.html" class="mobile-nav-link" data-i18n="nav_about">About AgriMind</a>
+    <a href="contact.html" class="mobile-nav-link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Page Header -->
+    <section class="section section-dark" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container text-center">
+        <span class="section-eyebrow">CROP CYCLE MANAGEMENT</span>
+        <h1 class="section-title" data-i18n="calendar_title">Smart Farming Calendar</h1>
+        <p class="section-subtitle" style="max-width: 750px; margin: 0 auto;" data-i18n="calendar_subtitle">
+          Plan, track, and manage all crop activities from seed sowing to harvest with tailored agronomic task schedules.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Illustrative Guidance Disclaimer Notice -->
+        <div class="demo-disclaimer" role="alert">
+          <svg class="demo-disclaimer-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Agronomic Guidance Notice:</strong>
+            Farming schedules and task dates generated here are illustrative sample templates based on standard Indian agronomic packages of practices. Actual crop duration and milestone timing vary by crop variety, soil quality, local microclimate, and weather fluctuations. Farmers are encouraged to cross-verify recommendations with local agricultural extension officers (Krishi Vigyan Kendra - KVK).
+          </div>
+        </div>
+
+        <!-- =========================================================================
+             SECTION A: CROP SETUP FORM (Visible when no plan or when editing)
+             ========================================================================= -->
+        <div id="calendarSetupCard" class="card" style="margin-bottom: 2.5rem; padding: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 1rem;">
+            <div>
+              <h2 style="font-size: 1.45rem; color: var(--color-text-dark);" data-i18n="calendar_setup_title">Generate Crop Farming Calendar</h2>
+              <p style="font-size: 0.875rem; color: var(--color-muted-text); margin: 0;">Configure your crop, field area, and sowing date to build an automatic agronomic roadmap.</p>
+            </div>
+            <span class="badge badge-leaf">Step 1: Crop Setup</span>
+          </div>
+
+          <form id="cropPlanForm" novalidate>
+            <div class="grid grid-2" style="gap: 1.25rem;">
+              <!-- Field: Crop Selection -->
+              <div>
+                <label for="planCropSelect" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_crop_name">Crop Name</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <select id="planCropSelect" class="form-control" required>
+                  <option value="" disabled selected>-- Select Your Crop --</option>
+                  <option value="rice">Rice / Paddy (Oryza sativa)</option>
+                  <option value="wheat">Wheat (Triticum aestivum)</option>
+                  <option value="tomato">Tomato (Solanum lycopersicum)</option>
+                  <option value="cotton">Cotton (Gossypium hirsutum)</option>
+                  <option value="maize">Maize / Corn (Zea mays)</option>
+                  <option value="groundnut">Groundnut / Peanut (Arachis hypogaea)</option>
+                  <option value="sugarcane">Sugarcane (Saccharum officinarum)</option>
+                </select>
+                <div class="form-error-msg" id="cropSelectError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please select a crop.</div>
+              </div>
+
+              <!-- Field: Sowing / Planting Date -->
+              <div>
+                <label for="planSowingDate" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_sowing_date">Planting / Sowing Date</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <input type="date" id="planSowingDate" class="form-control" required>
+                <div class="form-error-msg" id="sowingDateError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please choose a valid planting/sowing date.</div>
+              </div>
+
+              <!-- Field: State -->
+              <div>
+                <label for="planStateSelect" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_state">State</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <select id="planStateSelect" class="form-control" required>
+                  <option value="" disabled selected>-- Select Indian State --</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                </select>
+                <div class="form-error-msg" id="stateError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please select your state.</div>
+              </div>
+
+              <!-- Field: District -->
+              <div>
+                <label for="planDistrictInput" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_district">District</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <input type="text" id="planDistrictInput" class="form-control" placeholder="e.g. Ludhiana, Guntur, Nashik, Coimbatore" required>
+                <div class="form-error-msg" id="districtError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please enter your district name.</div>
+              </div>
+
+              <!-- Field: Land Area & Unit -->
+              <div>
+                <label class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_land_area">Land Area</span> & <span data-i18n="calendar_unit">Unit</span> <span style="color: var(--color-danger);">*</span>
+                </label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="number" id="planAreaInput" class="form-control" placeholder="e.g. 3.5" min="0.1" step="0.1" style="flex: 1;" required>
+                  <select id="planUnitSelect" class="form-control" style="width: 140px;">
+                    <option value="Acres" selected>Acres</option>
+                    <option value="Hectares">Hectares</option>
+                    <option value="Bighas">Bighas</option>
+                    <option value="Gunthas">Gunthas</option>
+                  </select>
+                </div>
+                <div class="form-error-msg" id="areaError" style="display: none; color: var(--color-danger); font-size: 0.8rem; margin-top: 0.25rem;">Please enter a valid land area greater than 0.</div>
+              </div>
+
+              <!-- Field: Farming Method -->
+              <div>
+                <label for="planFarmingMethod" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_farming_method">Farming Method</span>
+                </label>
+                <select id="planFarmingMethod" class="form-control">
+                  <option value="Conventional" selected>Conventional Agronomy</option>
+                  <option value="Organic">Certified Organic Farming</option>
+                  <option value="Natural / ZBNF">Zero Budget Natural Farming (ZBNF)</option>
+                  <option value="Precision">Precision Agriculture / Hi-Tech</option>
+                </select>
+              </div>
+
+              <!-- Field: Irrigation Method -->
+              <div>
+                <label for="planIrrigationMethod" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_irrigation_method">Irrigation Method</span>
+                </label>
+                <select id="planIrrigationMethod" class="form-control">
+                  <option value="Drip" selected>Drip Irrigation (Micro-irrigation)</option>
+                  <option value="Sprinkler">Sprinkler Irrigation</option>
+                  <option value="Flood">Flood Irrigation</option>
+                  <option value="Furrow / Manual">Furrow / Manual Basin</option>
+                </select>
+              </div>
+
+              <!-- Field: Optional Notes -->
+              <div>
+                <label for="planNotesInput" class="form-label" style="font-weight: 600;">
+                  <span data-i18n="calendar_notes">Field Notes (Optional)</span>
+                </label>
+                <input type="text" id="planNotesInput" class="form-control" placeholder="e.g. Hybrid seed lot PB-1121, South block plot 2">
+              </div>
+            </div>
+
+            <div style="margin-top: 1.75rem; display: flex; justify-content: flex-end; gap: 1rem; align-items: center; border-top: 1px solid var(--color-border-subtle); padding-top: 1.25rem;">
+              <button type="button" id="btnPrefillSamplePlan" class="btn btn-outline-dark btn-sm">
+                Load Sample Rice Plan
+              </button>
+              <button type="submit" id="btnGenerateCalendar" class="btn btn-primary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                  <line x1="16" x2="16" y1="2" y2="6"/>
+                  <line x1="8" x2="8" y1="2" y2="6"/>
+                  <line x1="3" x2="21" y1="10" y2="10"/>
+                </svg>
+                <span data-i18n="calendar_btn_generate">Generate Farming Calendar</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- =========================================================================
+             SECTION B: CALENDAR DASHBOARD (Populated when active plan exists)
+             ========================================================================= -->
+        <div id="calendarDashboard" style="display: none;">
+
+          <!-- Crop Plan Summary Card -->
+          <div class="calendar-summary-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem;">
+                  <span class="badge badge-lime" id="summaryCropBadge">Rice / Paddy</span>
+                  <span class="badge badge-dark" id="summaryCycleDayBadge">Day 24 of 125</span>
+                </div>
+                <h2 id="summaryPlanTitle" style="font-size: 1.75rem; color: var(--color-text-dark); margin: 0;">Paddy / Rice (Oryza sativa)</h2>
+                <div id="summaryLocationSubtitle" style="font-size: 0.9rem; color: var(--color-muted-text); margin-top: 0.35rem;">
+                  3.0 Acres • Ludhiana, Punjab • Drip Irrigation
+                </div>
+              </div>
+
+              <!-- Quick Plan Actions -->
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <button type="button" id="btnOpenAddTaskModal" class="btn btn-primary btn-sm">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span data-i18n="calendar_btn_add_task">Add Custom Task</span>
+                </button>
+                <button type="button" id="btnPrintCalendar" class="btn btn-secondary btn-sm">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                  <span data-i18n="calendar_btn_print">Print Calendar</span>
+                </button>
+                <button type="button" id="btnResetPlan" class="btn btn-outline-dark btn-sm">
+                  <span data-i18n="calendar_btn_reset_plan">Reset / Switch Plan</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Metrics Summary Grid -->
+            <div class="calendar-summary-grid">
+              <div class="summary-metric">
+                <div class="summary-metric-label">Planting / Sowing Date</div>
+                <div class="summary-metric-val" id="metricSowingDate">01 Nov 2026</div>
+              </div>
+              <div class="summary-metric">
+                <div class="summary-metric-label">Estimated Harvest</div>
+                <div class="summary-metric-val" id="metricHarvestDate">06 Mar 2027</div>
+              </div>
+              <div class="summary-metric">
+                <div class="summary-metric-label">Total Duration</div>
+                <div class="summary-metric-val" id="metricDuration">125 Days</div>
+              </div>
+              <div class="summary-metric">
+                <div class="summary-metric-label">Task Status</div>
+                <div class="summary-metric-val" id="metricTaskStats">3 / 14 Done</div>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="calendar-progress-wrapper">
+              <div class="calendar-progress-header">
+                <span>Crop Cycle Task Completion</span>
+                <span id="calendarProgressPercent" style="color: var(--color-success);">21%</span>
+              </div>
+              <div class="calendar-progress-track">
+                <div id="calendarProgressFill" class="calendar-progress-fill" style="width: 21%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendar Toolbar (View Switcher, Navigation, Filters) -->
+          <div class="calendar-toolbar">
+            <!-- Nav Controls -->
+            <div class="calendar-nav-controls">
+              <button type="button" id="btnPrevMonth" class="btn btn-sm btn-outline-dark" aria-label="Previous Month">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <div class="calendar-month-title" id="calendarMonthTitle">November 2026</div>
+              <button type="button" id="btnNextMonth" class="btn btn-sm btn-outline-dark" aria-label="Next Month">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+              <button type="button" id="btnToday" class="btn btn-sm btn-outline-dark" style="margin-left: 0.5rem;">Today</button>
+            </div>
+
+            <!-- View Switcher -->
+            <div class="view-switch-group">
+              <button type="button" class="view-btn active" id="viewBtnMonth" data-view="month">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                Month View
+              </button>
+              <button type="button" class="view-btn" id="viewBtnList" data-view="list">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                List Timeline
+              </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="calendar-filters-row">
+              <select id="filterCategorySelect" class="form-control" style="font-size: 0.825rem; padding: 0.45rem 0.75rem; width: auto;">
+                <option value="all">All Categories</option>
+                <option value="land-prep">Land Preparation</option>
+                <option value="seed-sowing">Seed & Sowing</option>
+                <option value="germination">Germination</option>
+                <option value="irrigation">Irrigation</option>
+                <option value="nutrient">Nutrient Management</option>
+                <option value="weed">Weed Control</option>
+                <option value="pest-disease">Pest & Disease</option>
+                <option value="growth">Growth Monitoring</option>
+                <option value="harvest-prep">Harvest Prep</option>
+                <option value="harvest">Harvesting</option>
+              </select>
+
+              <select id="filterStatusSelect" class="form-control" style="font-size: 0.825rem; padding: 0.45rem 0.75rem; width: auto;">
+                <option value="all">All Statuses</option>
+                <option value="pending">Pending</option>
+                <option value="completed">Completed</option>
+                <option value="overdue">Overdue</option>
+              </select>
+
+              <input type="text" id="filterSearchInput" class="form-control" placeholder="Search tasks..." style="font-size: 0.825rem; padding: 0.45rem 0.75rem; max-width: 160px;">
+            </div>
+          </div>
+
+          <!-- View 1: Month Calendar Grid -->
+          <div id="monthViewContainer" class="calendar-month-container">
+            <div class="calendar-weekdays">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+            </div>
+            <div class="calendar-days-grid" id="calendarDaysGrid">
+              <!-- Dynamically populated by farming-calendar.js -->
+            </div>
+          </div>
+
+          <!-- View 2: Task List Timeline -->
+          <div id="listViewContainer" class="calendar-list-view" style="display: none;">
+            <div id="timelineTasksList">
+              <!-- Dynamically populated by farming-calendar.js -->
+            </div>
+          </div>
+
+          <!-- Side / Bottom Priority Widgets -->
+          <div class="grid grid-3" style="gap: 1.5rem; margin-top: 2.5rem;">
+            <!-- Widget 1: Overdue Tasks -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.1rem; color: var(--color-danger); display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="font-size: 1.25rem;">⚠️</span> Overdue Tasks
+                </h3>
+                <span class="badge" id="overdueCountBadge" style="background: rgba(209, 59, 59, 0.15); color: var(--color-danger);">0</span>
+              </div>
+              <div id="overdueTasksContainer" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+                <div style="color: var(--color-muted-text); font-style: italic;">No overdue tasks. You are on track!</div>
+              </div>
+            </div>
+
+            <!-- Widget 2: Upcoming (Next 14 Days) -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.1rem; color: var(--color-text-dark); display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="font-size: 1.25rem;">⏳</span> Upcoming (14 Days)
+                </h3>
+                <span class="badge badge-leaf" id="upcomingCountBadge">0</span>
+              </div>
+              <div id="upcomingTasksContainer" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem;">
+                <div style="color: var(--color-muted-text); font-style: italic;">No upcoming tasks in the next 14 days.</div>
+              </div>
+            </div>
+
+            <!-- Widget 3: Completed Milestones -->
+            <div class="card" style="padding: 1.5rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.1rem; color: var(--color-success); display: flex; align-items: center; gap: 0.4rem;">
+                  <span style="font-size: 1.25rem;">✅</span> Completed Tasks
+                </h3>
+                <span class="badge badge-dark" id="completedCountBadge">0</span>
+              </div>
+              <div id="completedTasksContainer" style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; max-height: 250px; overflow-y: auto;">
+                <div style="color: var(--color-muted-text); font-style: italic;">No completed tasks yet.</div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /#calendarDashboard -->
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       MODALS: TASK DETAIL, ADD CUSTOM, EDIT, RESET CONFIRMATION
+       ========================================================================= -->
+
+  <!-- Modal 1: Task Detail Modal -->
+  <div class="modal-backdrop" id="taskDetailModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTaskTitle">Farming Task Details</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <span class="badge badge-leaf" id="modalTaskCategoryBadge">Irrigation</span>
+          <span class="badge badge-dark" id="modalTaskDateBadge">18 Nov 2026</span>
+          <span class="badge" id="modalTaskStatusBadge">Pending</span>
+        </div>
+        <p id="modalTaskDescription" style="font-size: 1rem; color: var(--color-text-body); line-height: 1.6; margin-bottom: 1.5rem;">
+          Task details will appear here.
+        </p>
+
+        <!-- Quick Postpone Actions -->
+        <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: 0.85rem 1rem; border: 1px solid var(--color-border-subtle); margin-bottom: 1rem;">
+          <div style="font-size: 0.8rem; font-weight: 600; color: var(--color-muted-text); margin-bottom: 0.5rem;">Quick Reschedule / Postpone:</div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-sm btn-outline-dark" id="btnPostpone3Days">+3 Days</button>
+            <button type="button" class="btn btn-sm btn-outline-dark" id="btnPostpone7Days">+1 Week</button>
+            <button type="button" class="btn btn-sm btn-outline-dark" id="btnPostponeCustom">Pick Date</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <button type="button" class="btn btn-outline-dark btn-sm" id="btnModalDeleteTask" style="color: var(--color-danger); border-color: rgba(209, 59, 59, 0.3);">
+          🗑️ Delete Task
+        </button>
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnModalEditTask">
+            ✏️ Edit
+          </button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnModalToggleComplete">
+            ✓ Mark Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Add Custom Task Modal -->
+  <div class="modal-backdrop" id="addTaskModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Custom Farming Task</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="customTaskForm">
+          <div style="margin-bottom: 1.15rem;">
+            <label for="customTaskTitle" class="form-label" style="font-weight: 600;">Task Title <span style="color: var(--color-danger);">*</span></label>
+            <input type="text" id="customTaskTitle" class="form-control" placeholder="e.g. Apply Bio-fertilizer Azospirillum" required>
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1.15rem;">
+            <div>
+              <label for="customTaskDate" class="form-label" style="font-weight: 600;">Scheduled Date <span style="color: var(--color-danger);">*</span></label>
+              <input type="date" id="customTaskDate" class="form-control" required>
+            </div>
+            <div>
+              <label for="customTaskCategory" class="form-label" style="font-weight: 600;">Category</label>
+              <select id="customTaskCategory" class="form-control">
+                <option value="land-prep">Land Preparation</option>
+                <option value="seed-sowing">Seed & Sowing</option>
+                <option value="germination">Germination</option>
+                <option value="irrigation">Irrigation</option>
+                <option value="nutrient" selected>Nutrient Management</option>
+                <option value="weed">Weed Control</option>
+                <option value="pest-disease">Pest & Disease</option>
+                <option value="growth">Growth Monitoring</option>
+                <option value="harvest-prep">Harvest Preparation</option>
+                <option value="harvest">Harvesting</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.15rem;">
+            <label for="customTaskDesc" class="form-label" style="font-weight: 600;">Description & Application Instructions</label>
+            <textarea id="customTaskDesc" class="form-control" rows="3" placeholder="Provide dosage, spray timing, or specific block instructions..."></textarea>
+          </div>
+
+          <div class="modal-footer" style="padding: 0; margin-top: 1.5rem;">
+            <button type="button" class="btn btn-outline-dark" data-modal-close>Cancel</button>
+            <button type="submit" class="btn btn-primary">Add Task to Calendar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Edit Task Modal -->
+  <div class="modal-backdrop" id="editTaskModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Farming Task</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="editTaskForm">
+          <input type="hidden" id="editTaskId">
+          <div style="margin-bottom: 1.15rem;">
+            <label for="editTaskTitle" class="form-label" style="font-weight: 600;">Task Title <span style="color: var(--color-danger);">*</span></label>
+            <input type="text" id="editTaskTitle" class="form-control" required>
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem; margin-bottom: 1.15rem;">
+            <div>
+              <label for="editTaskDate" class="form-label" style="font-weight: 600;">Scheduled Date <span style="color: var(--color-danger);">*</span></label>
+              <input type="date" id="editTaskDate" class="form-control" required>
+            </div>
+            <div>
+              <label for="editTaskCategory" class="form-label" style="font-weight: 600;">Category</label>
+              <select id="editTaskCategory" class="form-control">
+                <option value="land-prep">Land Preparation</option>
+                <option value="seed-sowing">Seed & Sowing</option>
+                <option value="germination">Germination</option>
+                <option value="irrigation">Irrigation</option>
+                <option value="nutrient">Nutrient Management</option>
+                <option value="weed">Weed Control</option>
+                <option value="pest-disease">Pest & Disease</option>
+                <option value="growth">Growth Monitoring</option>
+                <option value="harvest-prep">Harvest Preparation</option>
+                <option value="harvest">Harvesting</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.15rem;">
+            <label for="editTaskDesc" class="form-label" style="font-weight: 600;">Description</label>
+            <textarea id="editTaskDesc" class="form-control" rows="3"></textarea>
+          </div>
+
+          <div class="modal-footer" style="padding: 0; margin-top: 1.5rem;">
+            <button type="button" class="btn btn-outline-dark" data-modal-close>Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Reset Plan Confirmation Modal -->
+  <div class="modal-backdrop" id="resetPlanModal">
+    <div class="modal-dialog" style="max-width: 480px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Reset Crop Calendar Plan?</h3>
+        <button type="button" class="modal-close" data-modal-close aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--color-text-body); line-height: 1.6;">
+          Are you sure you want to reset your active farming calendar? This will remove all scheduled tasks and custom entries for this crop from local storage.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-modal-close>Cancel</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmResetPlan" style="background: var(--color-danger); border-color: var(--color-danger);">
+          Yes, Reset Plan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complete Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Mission -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>AgriMind <span class="highlight">AI</span></span>
+          </a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Your farm, powered by intelligent technology.</p>
+        </div>
+
+        <!-- Col 2: AI Tools -->
+        <div class="footer-col">
+          <h4 data-i18n="nav_tools">AI Tools</h4>
+          <div class="footer-links">
+            <a href="crop-doctor.html" class="footer-link" data-i18n="nav_doctor">AI Crop Doctor</a>
+            <a href="crop-planner.html" class="footer-link" data-i18n="nav_planner">Crop Planner</a>
+            <a href="farming-calendar.html" class="footer-link" data-i18n="nav_calendar">Farming Calendar</a>
+            <a href="irrigation-reminders.html" class="footer-link" data-i18n="nav_reminders">Irrigation Reminders</a>
+            <a href="soil-intelligence.html" class="footer-link" data-i18n="nav_soil">Soil Intelligence</a>
+            <a href="weather-irrigation.html" class="footer-link" data-i18n="nav_weather">Weather & Irrigation</a>
+            <a href="profit-calculator.html" class="footer-link" data-i18n="nav_profit">Profit Calculator</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <div class="footer-links">
+            <a href="mandi-market.html" class="footer-link" data-i18n="nav_market">Market Insights</a>
+            <a href="knowledge-hub.html" class="footer-link" data-i18n="nav_knowledge">Knowledge Hub</a>
+            <a href="about.html" class="footer-link" data-i18n="nav_about">About AgriMind</a>
+            <a href="contact.html" class="footer-link" data-i18n="nav_contact">Contact</a>
+            <a href="privacy.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Platform Integrity -->
+        <div class="footer-col">
+          <h4>Platform Notice</h4>
+          <p style="font-size: 0.85rem; color: var(--color-muted-light); line-height: 1.6;" data-i18n="footer_disclaimer_note">
+            AgriMind AI is an educational technology prototype. Agricultural decisions should always consider physical soil testing and certified local agronomic guidance.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_rights">© 2026 AgriMind AI — Intelligent Farming Platform. All rights reserved.</p>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="privacy.html" style="color: var(--color-muted-light); text-decoration: underline;" data-i18n="footer_privacy">Privacy</a>
+          <a href="contact.html" style="color: var(--color-muted-light); text-decoration: underline;" data-i18n="footer_contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/farming-calendar-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/farming-calendar.js"></script>
+</body>
+</html>
