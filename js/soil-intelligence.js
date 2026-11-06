@@ -303,3 +303,4 @@ function initSoilIntelligence() {
   // Initial render
   updateDashboard();
 }
+

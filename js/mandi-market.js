@@ -183,3 +183,4 @@ function initMandiMarket() {
   filterAndSortData();
   calculateRevenue();
 }
+

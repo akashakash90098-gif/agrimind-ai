@@ -221,3 +221,4 @@ The codebase is organized with clear architectural boundaries for easy upgrade:
 - **License:** MIT License. Free for educational and agricultural development.
 - **Photography:** Courtesy of Unsplash agricultural contributors (editorial crop, farming, and soil photography).
 - **Icons:** Feather / Lucide style inline SVGs.
+

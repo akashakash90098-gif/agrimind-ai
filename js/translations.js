@@ -497,3 +497,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const lang = getCurrentLanguage();
   applyLanguage(lang);
 });
+

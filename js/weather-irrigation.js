@@ -314,3 +314,4 @@ function initWeatherAndIrrigation() {
   // Initial load
   loadWeatherData('ludhiana');
 }
+

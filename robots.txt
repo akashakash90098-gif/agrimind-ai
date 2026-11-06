@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://agrimind-ai.vercel.app/sitemap.xml
+

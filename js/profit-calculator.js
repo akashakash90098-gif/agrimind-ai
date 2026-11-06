@@ -257,3 +257,4 @@ function initProfitCalculator() {
   // Initial Calculation
   calculateFarmProfit();
 }
+
